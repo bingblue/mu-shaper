@@ -1,0 +1,14 @@
+extends part/layout
+
+block content
+  include part/header.pug
+  main.login
+    h1.logo
+      img(src= app.root + "/img/logo_single.png", alt="bingblue logo")
+    form(action="/auth/login", method="post")
+      input(type="text", name="username")
+      input(type="text", name="password")
+      input(type="submit", value="登陆")
+    
+    a(href="/auth/github") github登录
+  include part/footer.pug
