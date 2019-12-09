@@ -108,6 +108,8 @@
 - [X] 目录定义
 - [X] Typescript
 - [X] [JavaScript Standard 代码风格][31]
+- [ ] Log->装饰器
+- [ ] 装饰器->工厂模式->处理try catch
 - [ ] mysql
 - [ ] typeorm
 - 中间件
