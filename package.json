@@ -24,7 +24,7 @@
       "node_modules/**.js"
     ]
   },
-  "license": "MTI",
+  "license": "MIT License",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bingblue/mu-shaper.git"

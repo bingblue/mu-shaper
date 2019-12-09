@@ -51,7 +51,7 @@ app.use(async (ctx, next) => {
 })
 
 // 加载路由
-glob.sync('routes/**/*.js', {cwd: __dirname}).sort((x, y) => {
+glob.sync('route/**/*.js', {cwd: __dirname}).sort((x, y) => {
   if (x.indexOf('index') > -1) return -1
   return 1
 }).forEach(file => {
