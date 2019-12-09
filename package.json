@@ -1,0 +1,26 @@
+{
+  "name": "mu-shaper",
+  "version": "0.0.1",
+  "description": "Node.js开发脚手架，快速开发，一站式开发，轻量级，更简洁的Node模块化模板",
+  "author": "XiaoMuCOOL",
+  "private": false,
+  "scripts": {
+    "start": "node server/bin/www",
+    "lint": "standard --fix",
+    "test": "jest -v test/*.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+  },
+  "standard": {
+    "globals": [
+      "Config",
+      "Util",
+    ],
+    "ignore": [
+      "node_modules/**.js"
+    ]
+  },
+  "readme": "ERROR: No README data found!"
+}
