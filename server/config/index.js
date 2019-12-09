@@ -1,16 +1,16 @@
 'use strict'
 const Config = {
-  keys: ['mu-koa2'],
+  keys: [''],
   mongodb: {
-    cookieSecret: 'mygroup',
-    db: 'group',
+    cookieSecret: '',
+    db: '',
     host: '127.0.0.1',
-    port: 27017,
-    url: 'mongodb://127.0.0.1:27017/test'
+    port: 0,
+    url: 'mongodb://127.0.0.1:00/test'
   },
   sqe: [], // {_id: 'userId'}, {_id: 'groupId'}
   jwt: {
-    secret: 'me' // 默认
+    secret: '' // 默认
   },
   mongodbSecret: { // mongodb用户和密码
     user: '',
@@ -19,12 +19,12 @@ const Config = {
   github: {
     clientID: '',
     clientSecret: '',
-    callbackURL: 'http://localhost:3000/auth/github/callback'
+    callbackURL: ''
   },
   redis: {
     host: '127.0.0.1',
-    port: 6379,
-    ttl: 3600
+    port: 00,
+    ttl: 00
   }
 }
 
