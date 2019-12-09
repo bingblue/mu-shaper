@@ -105,9 +105,9 @@
 
 ## Mu-Shaper v1.0 TODO List
 - [X] Koa2
-- [ ] 目录定义
-- [ ] Typescript
-- [ ] [JavaScript Standard 代码风格][31]
+- [X] 目录定义
+- [X] Typescript
+- [X] [JavaScript Standard 代码风格][31]
 - [ ] mysql
 - [ ] typeorm
 - 中间件
