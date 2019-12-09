@@ -24,5 +24,11 @@
       "node_modules/**.js"
     ]
   },
+  "license": "MTI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bingblue/mu-shaper.git"
+  },
+  "homepage": "https://github.com/bingblue/mu-shaper#readme",
   "readme": "ERROR: No README data found!"
 }
