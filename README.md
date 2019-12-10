@@ -102,22 +102,26 @@
 - 聊天系统 websocket（v3）
 - 博客系统（v3）
   - markdown编辑器
+- 文档，使用说明
+  - vuepress              ⭐
+  - gatsby
 
 ## Mu-Shaper v1.0 TODO List
 - [X] Koa2
 - [X] 目录定义
 - [X] Typescript
 - [X] [JavaScript Standard 代码风格][31]
-- [ ] Log->装饰器
-- [ ] 装饰器->工厂模式->处理try catch
-- [ ] mysql
-- [ ] typeorm
 - 中间件
   - [ ] koa-better-body
   - [ ] koa-joi-router
   - [ ] koa-error
   - [ ] koa-logger
 - [ ] http2/https
+- [ ] vuepress文档
+- [ ] Log->装饰器
+- [ ] 装饰器->工厂模式->处理try catch
+- [ ] mysql
+- [ ] typeorm
 - [ ] ipv6
 - [ ] pm2
 - [ ] jest
