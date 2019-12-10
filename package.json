@@ -5,7 +5,7 @@
   "author": "XiaoMuCOOL",
   "private": false,
   "scripts": {
-    "start": "",
+    "start": "node server/app.bs",
     "dev": "",
     "bulid": "",
     "lint": "standard --fix",
