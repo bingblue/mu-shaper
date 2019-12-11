@@ -110,7 +110,7 @@
 - [X] Koa2
 - [X] 目录定义
 - [X] Typescript
-- [X] [JavaScript Standard 代码风格][31]
+- [ ] [JavaScript Standard 代码风格][31]
 - 中间件
   - [ ] koa-better-body
   - [ ] koa-joi-router

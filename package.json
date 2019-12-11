@@ -5,8 +5,8 @@
   "author": "XiaoMuCOOL",
   "private": false,
   "scripts": {
-    "start": "node server/app.bs",
-    "dev": "",
+    "start": "npm run dev",
+    "dev": "ts-node server/app.ts",
     "bulid": "",
     "lint": "standard --fix",
     "test": "jest -v test/*.js"
@@ -14,7 +14,10 @@
   "dependencies": {
     "koa": "^2.11.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.3"
+  },
   "standard": {
     "globals": [
       "Config",
