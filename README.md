@@ -111,6 +111,7 @@
 - [X] 目录定义
 - [X] Typescript
 - [ ] [JavaScript Standard 代码风格][31]
+- [X] 文档-vuepress
 - 中间件
   - [ ] koa-better-body
   - [ ] koa-joi-router
