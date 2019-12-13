@@ -9,7 +9,7 @@
     "dev": "ts-node server/app.ts",
     "bulid": "",
     "lint": "standard --fix",
-    "docs": "vuepress dev",
+    "docs": "vuepress dev docs",
     "test": "jest -v test/*.js"
   },
   "dependencies": {

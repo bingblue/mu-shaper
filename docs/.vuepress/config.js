@@ -1,4 +1,7 @@
 module.exports = {
+  markdown: {
+    lineNumbers: true
+  },
   locales: {
     '/': {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
@@ -11,20 +14,23 @@ module.exports = {
       description: 'Mu-Shaper,Fast Develop Scaffolding.'
     }
   },
-  serviceWorker: true,
-  theme: 'vue',
+  // serviceWorker: true,
   themeConfig: {
     // algolia: {
     //   apiKey: 'f854bb46d3de7eeb921a3b9173bd0d4c',
     //   indexName: 'mu-shaper',
     // },
     repo: 'bingblue/mu-shaper',
+    smoothScroll: true,
+    displayAllHeaders: true,
+    editLinks: true,
     docsDir: 'docs',
     locales: {
       '/': {
         label: '简体中文',
         selectText: '选择语言',
-        editLinkText: '在 GitHub 上编辑此页',
+        lastUpdated: '最后更新',
+        editLinkText: '期待你的加入！',
         nav: [
           {
             text: '指南',
@@ -36,7 +42,7 @@ module.exports = {
           },
           {
             text: '更新记录',
-            link: 'https://github.com/vuejs/vue-router/releases'
+            link: 'https://github.com/bingblue/mu-shaper/releases'
           }
         ],
         sidebar: [
@@ -44,6 +50,7 @@ module.exports = {
           {
             title: '基础',
             collapsable: false,
+            sidebarDepth: 0,    // 默认值 1
             children: [
               '/guide/',
               '/guide/A'
@@ -51,10 +58,11 @@ module.exports = {
           },
           {
             title: '进阶',
-            collapsable: false,
+            collapsable: true,
+            sidebarDepth: 2,
             children: [
-              '/guide/C',
-              '/guide/D'
+              '/guide/B',
+              '/guide/C'
             ]
           }
         ]
@@ -62,7 +70,8 @@ module.exports = {
       '/en/': {
         label: 'English',
         selectText: 'Languages',
-        editLinkText: 'Edit this page on GitHub',
+        editLinkText: 'Hope You Can Join',
+        lastUpdated: 'Last Updated',
         nav: [
           {
             text: 'Guide',
@@ -74,7 +83,7 @@ module.exports = {
           },
           {
             text: 'Release Notes',
-            link: 'https://github.com/vuejs/vue-router/releases'
+            link: 'https://github.com/bingblue/mu-shaper/releases'
           }
         ],
         sidebar: [
@@ -82,6 +91,7 @@ module.exports = {
           {
             title: 'Essentials',
             collapsable: false,
+            sidebarDepth: 1,
             children: [
               '/en/guide/',
               '/en/guide/A',
@@ -89,10 +99,10 @@ module.exports = {
           },
           {
             title: 'Advanced',
-            collapsable: false,
+            collapsable: true,
             children: [
-              '/en/guide/C',
-              '/en/guide/D'
+              '/en/guide/B',
+              '/en/guide/C'
             ]
           }
         ]
