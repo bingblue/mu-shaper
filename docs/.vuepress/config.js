@@ -53,7 +53,7 @@ module.exports = {
             sidebarDepth: 0,    // 默认值 1
             children: [
               '/guide/',
-              '/guide/A'
+              '/guide/getting-started'
             ]
           },
           {

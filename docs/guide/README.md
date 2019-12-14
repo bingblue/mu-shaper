@@ -1,4 +1,4 @@
-# 起步
+# 安装
 ## 安装环境
 1. **[git](#安装-git)** ： v1.9.4
 2. **[nodejs](#安装-nodejs)** ： v0.10.32
@@ -52,7 +52,7 @@
 
 现在，已经完成了所有关于 git 的 **安装** 、 **pull** 和 **push** 。
 
-######附：git常用命令######
+###### 附：git常用命令
 
 - git push origin master //把本地源码库push到Github上
 - git pull origin master //从Github上pull到本地源码库
@@ -73,7 +73,7 @@
 **Git 学习网站：** http://www.liaoxuefeng.com/ 里的Git教程
 
 
-###安装 nodejs###
+### 安装 nodejs
  nodejs 下载地址：http://www.nodejs.org/download/
 
 下载好 nodejs ，直接安装，还是一路 next 就可以了，我修改了 默认安装路径 。安装好后配置下环境变量：
@@ -87,7 +87,7 @@
 
 显示 `v.0.10.32` 即安装成功！
 
-#####nodejs 入门#####
+##### nodejs 入门
 使用 **nodejs** 搭建本地 **HTTP** 服务非常简单，让我们开始吧，新建文件 `test.js`,并输入内容：
 
     var http = require("http"); 
@@ -117,7 +117,7 @@
 **Nodejs 学习网站：** https://github.com/nswbmw/N-blog/wiki
 
 
-###安装 mongodb###
+### 安装 mongodb
 
  mongodb 下载地址：http://www.mongodb.org/downloads
 
@@ -155,7 +155,7 @@
 **MongoDB 学习网站：** http://www.cnblogs.com/xusir/archive/2012/12/24/2830957.html
 
 
-###安装 express###
+### 安装 express
  npm 官方网站：https://www.npmjs.org/
 
  express 官方网站：http://expressjs.com/
@@ -170,7 +170,7 @@
 
 回车显示 `4.9.0` 即安装成功。
 
-#####新建项目#####
+##### 新建项目
 打开控制台 `cd` 到项目父级文件夹下，输入：
 
     express -e group

@@ -13,7 +13,8 @@
     "test": "jest -v test/*.js"
   },
   "dependencies": {
-    "koa": "^2.11.0"
+    "koa": "^2.11.0",
+    "koa-joi-router": "^6.0.1"
   },
   "devDependencies": {
     "ts-node": "^8.5.4",

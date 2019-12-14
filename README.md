@@ -113,12 +113,12 @@
 - [ ] [JavaScript Standard 代码风格][31]
 - [X] 文档-vuepress
 - 中间件
-  - [ ] koa-better-body
-  - [ ] koa-joi-router
+  - [X] koa-joi-router
+  - [X] koa-better-body
   - [ ] koa-error
   - [ ] koa-logger
 - [ ] http2/https
-- [ ] vuepress文档
+- [X] vuepress文档
 - [ ] Log->装饰器
 - [ ] 装饰器->工厂模式->处理try catch
 - [ ] mysql
