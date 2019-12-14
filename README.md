@@ -114,10 +114,10 @@
 - [X] 文档-vuepress
 - 中间件
   - [X] koa-joi-router
-  - [X] koa-better-body
+  - [ ] koa-better-body
   - [ ] koa-error
   - [ ] koa-logger
-- [ ] http2/https
+- [X] http2/https
 - [X] vuepress文档
 - [ ] Log->装饰器
 - [ ] 装饰器->工厂模式->处理try catch
