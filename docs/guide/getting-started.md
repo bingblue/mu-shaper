@@ -18,7 +18,7 @@ npm i typescript ts-node -D
 
 新建app.ts在server目录下
 
-```js
+```ts
 'use strict'
 import * as Koa from 'koa'
 const app = new Koa()
@@ -36,7 +36,15 @@ app.listen(3000)
 ```
 让我们访问`localhost:3000`就能看到`Hello World`了，你离CEO的距离只差**99**个`Hello World`了，加油！
 
+```markdown
+英文
 [1]:https://koajs.com/
 [2]:http://www.typescriptlang.org/docs/home.html
 [3]:https://github.com/TypeStrong/ts-node
 [4]:https://github.com/koajs/joi-router
+```
+
+[1]:https://koajs.com/
+[2]:http://www.typescriptlang.org/docs/home.html
+[3]:https://github.com/TypeStrong/ts-node
+[4]:https://www.helplib.com/GitHub/article_116239
