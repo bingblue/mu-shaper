@@ -17,6 +17,7 @@ module.exports = {
   },
   // serviceWorker: true,
   themeConfig: {
+    logo: './logo_single.png',
     // algolia: {
     //   apiKey: 'f854bb46d3de7eeb921a3b9173bd0d4c',
     //   indexName: 'mu-shaper',
