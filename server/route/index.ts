@@ -17,7 +17,7 @@ routers.route({
       email: Joi.string().lowercase().email(),
       password: Joi.string().max(100)
     },
-    type: 'json',
+    type: 'form',
     output: {
       200: {
         body: {
@@ -28,6 +28,7 @@ routers.route({
     }
   },
   handler: async (ctx) => {
+    console.log(ctx.request.body)
     ctx.status = 200
     ctx.body = {
       userId: '12313',
