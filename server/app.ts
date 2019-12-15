@@ -8,5 +8,5 @@ const server = http2.createSecureServer({
   key: Config.website.key
 }, app.callback())
 server.listen(Config.website.port, () => {
-  console.log(`Server listening on 8000`)
+  console.log(`Server listening on ${Config.website.port}`)
 })
