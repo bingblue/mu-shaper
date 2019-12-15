@@ -2,6 +2,7 @@ module.exports = {
   markdown: {
     lineNumbers: true
   },
+  plugins: ['@vuepress/back-to-top'],
   locales: {
     '/': {
       lang: 'zh-CN', // 将会被设置为 <html> 的 lang 属性
@@ -22,7 +23,8 @@ module.exports = {
     // },
     repo: 'bingblue/mu-shaper',
     smoothScroll: true,
-    displayAllHeaders: true,
+    // 显示所有页面的标题链接
+    displayAllHeaders: false,
     editLinks: true,
     docsDir: 'docs',
     locales: {
@@ -50,7 +52,7 @@ module.exports = {
           {
             title: '基础',
             collapsable: false,
-            sidebarDepth: 0,    // 默认值 1
+            sidebarDepth: 1,    // 默认值 1
             children: [
               '/guide/',
               '/guide/getting-started'

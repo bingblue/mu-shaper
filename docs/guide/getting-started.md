@@ -4,7 +4,7 @@
 :loudspeaker: 默认已安装好`Nodejs`
 :::
 
-## 安装
+## 使用koa
 
 安装[koa][1]、[koa-joi-router][4]
 ```cmd
@@ -17,7 +17,6 @@ npm i typescript ts-node -D
 ```
 
 新建app.ts在server目录下
-
 ```ts
 'use strict'
 import * as Koa from 'koa'
@@ -34,17 +33,113 @@ app.listen(3000)
 // 运行npm start
 // 现在，应用已经启动了！
 ```
+
 让我们访问`localhost:3000`就能看到`Hello World`了，你离CEO的距离只差**99**个`Hello World`了，加油！
 
+## 使用http2
+
+```ts
+import * as http2 from 'http2'
+import * as Koa from 'koa'
+const app = new Koa()
+// 启动服务
+const server = http2.createSecureServer({
+  cert: cert,
+  key: key
+}, app.callback())
+server.listen(3000, () => {
+  console.log(`服务已启动!`)
+})
+```
+
+访问`https://localhost:3000`就能看到了~`cert`和`key`需要自己申请下`SSL证书`
+
+## 使用nodemon
+
+[nodemon][6]：热加载插件，修改文件自动重启。
+```cmd
+// 安装nodemon
+npm i nodemon -D
+```
+
+在`package.json`中修改
+```json {3}
+"scripts": {
+  "start": "npm run dev",
+  "dev": "nodemon -e ts,tsx,json --exec ts-node ./server/app.ts",
+},
+// 运行 npm start
+```
+
+## 使用VSCode调试
+按`F5`调出配置文件`.vscode\launch.json`,修改
+```json
+{
+  "name": "运行Mu-Shaper",
+  "type": "node",
+  "request": "launch",
+  "args": [
+    "${workspaceRoot}/server/app.ts" // 入口文件
+  ],
+  "runtimeArgs": [
+    "--nolazy",
+    "-r",
+    "ts-node/register"
+  ],
+  "sourceMaps": true,
+  "cwd": "${workspaceRoot}",
+  "protocol": "inspector",
+  "console": "integratedTerminal",
+  "internalConsoleOptions": "neverOpen"
+}
+// 再按F5就可以调试了，可设置断点
+```
+
+## 使用Standard Style
+[JavaScript Standard Style][7]：代码风格，主要规则有使用两个空格、字符串使用单引号、无分号等
+standard配合typescript有BUG，所以安装standardx，见[详情][8]
+```cmd
+npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+
+在`package.json`中添加
+```json {4}
+"scripts": {
+  "start": "npm run dev",
+  "dev": "nodemon -e ts,tsx,json --exec ts-node ./server/app.ts",
+  "lint": "standardx --fix --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin **/*.ts",
+},
+// 运行 npm run lint
+```
+
+## 使用pm2
+[pm2][5]：生产环境自动重启的插件，很强大。
+```cmd
+// 安装pm2
+npm i pm2 -S
+// 安装PM2的TS环境
+npx pm2 install typescript
+// 启动服务
+pm2 start server/app.ts --watch
+```
+
+## 参考
 ```markdown
-英文
 [1]:https://koajs.com/
 [2]:http://www.typescriptlang.org/docs/home.html
 [3]:https://github.com/TypeStrong/ts-node
 [4]:https://github.com/koajs/joi-router
+[5]:https://pm2.keymetrics.io/docs/usage/quick-start/
+[6]:https://github.com/remy/nodemon#nodemon
+[7]:https://standardjs.com
+[8]:https://standardjs.com/index.html#typescript
 ```
 
 [1]:https://koajs.com/
 [2]:http://www.typescriptlang.org/docs/home.html
 [3]:https://github.com/TypeStrong/ts-node
 [4]:https://www.helplib.com/GitHub/article_116239
+[5]:https://pm2.keymetrics.io/docs/usage/quick-start/
+[6]:https://github.com/remy/nodemon#nodemon
+[7]:https://standardjs.com/readme-zhcn.html
+[8]:https://standardjs.com/index.html#typescript

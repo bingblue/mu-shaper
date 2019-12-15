@@ -73,7 +73,8 @@
   - [更多][26]
 - [其他中间件][27]
   - koa-joi-router        ⭐
-  - koa-joi-router-docs   ⭐
+  - koa-joi-router-docs(对比下)           ⭐
+  - koa-joi-router-to-swagger-json(对比下)⭐
   - koa-joi-swagger
   - koa-oai-router
   - koa-better-serve
@@ -110,21 +111,20 @@
 - [X] Koa2
 - [X] 目录定义
 - [X] Typescript
-- [ ] [JavaScript Standard 代码风格][31]
+- [X] [JavaScript Standard 代码风格][31]
 - [X] 文档-vuepress
 - 中间件
   - [X] koa-joi-router
-  - [ ] koa-better-body
+  - [ ] ~~koa-better-body~~（joi-router自带解析）
   - [ ] koa-error
   - [ ] koa-logger
 - [X] http2/https
-- [X] vuepress文档
 - [ ] Log->装饰器
 - [ ] 装饰器->工厂模式->处理try catch
 - [ ] mysql
 - [ ] typeorm
 - [ ] ipv6
-- [ ] pm2
+- [X] pm2
 - [ ] jest
 - [ ] koa-passport
 - [ ] passport-jwt

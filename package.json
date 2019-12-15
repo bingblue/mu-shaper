@@ -6,9 +6,9 @@
   "private": false,
   "scripts": {
     "start": "npm run dev",
-    "dev": "ts-node server/app.ts",
+    "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
     "bulid": "",
-    "lint": "standard --fix",
+    "lint": "standardx --fix --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin **/*.ts",
     "docs": "vuepress dev docs",
     "test": "jest -v test/*.js"
   },
@@ -17,6 +17,13 @@
     "koa-joi-router": "^6.0.1"
   },
   "devDependencies": {
+    "@types/koa": "^2.11.0",
+    "@types/koa-joi-router": "^5.2.3",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "@vuepress/plugin-back-to-top": "^1.2.0",
+    "nodemon": "^2.0.2",
+    "standardx": "^5.0.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
     "vuepress": "^1.2.0"

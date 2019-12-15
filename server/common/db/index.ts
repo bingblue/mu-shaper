@@ -1,5 +1,5 @@
 'use strict'
-let mongoose = require('mongoose')
+const mongoose = require('mongoose')
 const Config = require('./config')
 const Util = require('../controllers/util')
 mongoose.connect(Config.mongodb.url, { useMongoClient: true })
