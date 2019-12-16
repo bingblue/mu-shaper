@@ -9,10 +9,12 @@ const app = new Koa()
 app.use(route)
 
 // 启动服务
-const server = http2.createSecureServer({
-  cert: Config.website.cert,
-  key: Config.website.key
-}, app.callback())
-server.listen(Config.website.port, () => {
-  console.log(`服务已启动，请监听https://localhost:${Config.website.port} 端口。`)
-})
+app.listen(Config.website.port)
+
+// const server = http2.createSecureServer({
+//   cert: Config.website.cert,
+//   key: Config.website.key
+// }, app.callback())
+// server.listen(Config.website.port, () => {
+//   console.log(`服务已启动，请监听https://localhost:${Config.website.port} 端口。`)
+// })
