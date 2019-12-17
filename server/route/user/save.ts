@@ -1,10 +1,7 @@
 'use strict'
-import * as router from 'koa-joi-router'
-const Joi = router.Joi
-
-const save = router()
-save.get('/save', async (ctx) => {
+import { route } from '../../common/route'
+// 这里路由是：/user/save/save
+route.get('/save', async (ctx) => {
   ctx.body = 'user/save.ts'
 })
-
-export default save.middleware()
+export default route

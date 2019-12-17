@@ -31,10 +31,10 @@
     "typescript": "^3.7.3",
     "vuepress": "^1.2.0"
   },
-  "standard": {
+  "standardx": {
     "globals": [
-      "Config",
-      "Util"
+      "test",
+      "expect"
     ],
     "ignore": [
       "node_modules/**.js"

@@ -1,20 +1,16 @@
 'use strict'
-import * as router from 'koa-joi-router'
+import { route } from '../common/route'
 import * as glob from 'glob'
-const Joi = router.Joi
-
-const index = router()
-index.get('/', async (ctx) => {
+route.get('/', async (ctx) => {
   ctx.body = 'index.ts'
 })
 
-// 加载路由
-glob.sync('**/!(index).ts', {cwd: __dirname}).forEach(file => {
-  // const route = require('./' + file)
-  let urlPath = file.replace(/\.[^.]*$/, '').replace('routes', '').replace('/index', '/')
-  console.log(urlPath)
-  // route.prefix(urlPath)
-  // index.use(route.middleware())
+// 加载所有路由
+glob.sync('**/*.ts', { cwd: __dirname }).forEach(file => {
+  const route = require('./' + file).default
+  const urlPath = '/' + file.replace(/\.[^.]*$/, '').replace('/index', '')
+  if (urlPath === '/index') return
+  route.prefix(urlPath)
+  route.use(route.middleware())
 })
-
-export default index.middleware()
+export default route.middleware()

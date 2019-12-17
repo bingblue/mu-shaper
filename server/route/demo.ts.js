@@ -1,9 +1,6 @@
 'use strict'
-import * as router from 'koa-joi-router'
-const Joi = router.Joi
-
-const routers = router()
-
+import { route as routers, Joi } from '../common/route'
+routers.prefix('/')
 routers.get('/', async (ctx) => {
   ctx.body = 'hello joi-router!'
 })
