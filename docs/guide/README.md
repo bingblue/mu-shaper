@@ -1,9 +1,9 @@
 # 安装环境
 ## 环境列表
-1. **[git](#安装-git)** ： v1.9.4
-2. **[nodejs](#安装-nodejs)** ： v0.10.32
-3. **[mongodb](#安装-mongodb)** ： v2.6.4
-4. **[express](#安装-express)** ： v4.9.0
+1. **[git](#安装-git)** 
+2. **[nodejs](#安装-nodejs)**
+3. ~~**[mongodb](#安装-mongodb)**~~
+4. ~~**[express](#安装-express)**~~
 
 ## 安装 git
  git 下载地址：http://git-scm.com/downloads/ 
@@ -86,7 +86,7 @@ git checkout -- test.txt //还原成 仓库中的文件
 
     node -v
 
-显示 `v.0.10.32` 即安装成功！
+显示 `v.xx.xx.xx` 即安装成功！
 
 ### nodejs 入门
 使用 **nodejs** 搭建本地 **HTTP** 服务非常简单，让我们开始吧，新建文件 `test.js`,并输入内容：
@@ -169,7 +169,7 @@ git checkout -- test.txt //还原成 仓库中的文件
 
     express -V
 
-回车显示 `4.9.0` 即安装成功。
+回车显示 `x.x.x` 即安装成功。
 
 ### 新建项目
 打开控制台 `cd` 到项目父级文件夹下，输入：
