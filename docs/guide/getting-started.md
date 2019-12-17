@@ -122,7 +122,7 @@ npm i koa-joi-router -S
 ```
 
 例子：
-```ts
+```ts {18}
 import * as Koa from 'koa'
 import * as router from 'koa-joi-router'
 const Joi = router.Joi
