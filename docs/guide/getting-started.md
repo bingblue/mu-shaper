@@ -6,17 +6,17 @@
 
 ## 使用koa
 
-安装[koa][1]、[koa-joi-router][4]
+安装[koa][1]：
 ```cmd
-npm i koa koa-joi-router -S
+npm i koa -S
 ```
 
-安装[typescript][2]、[ts-node][3]，`ts-node`能使Nodejs直接运行TS代码
+安装[typescript][2]、[ts-node][3]，`ts-node`能使Nodejs直接运行TS代码。
 ```cmd
 npm i typescript ts-node -D
 ```
 
-新建app.ts在server目录下
+新建app.ts在server目录下：
 ```ts
 'use strict'
 import * as Koa from 'koa'
@@ -24,7 +24,7 @@ const app = new Koa()
 app.listen(3000)
 ```
 
-在`package.json`中加入
+在`package.json`中加入：
 ```json {3}
 "scripts": {
   "start": "npm run dev",
@@ -52,7 +52,7 @@ server.listen(3000, () => {
 })
 ```
 
-访问`https://localhost:3000`就能看到了~`cert`和`key`需要自己申请下`SSL证书`
+访问`https://localhost:3000`就能看到了~`cert`和`key`需要自己申请下`SSL证书`。
 
 ## 使用nodemon
 
@@ -62,7 +62,7 @@ server.listen(3000, () => {
 npm i nodemon -D
 ```
 
-在`package.json`中修改
+在`package.json`中修改：
 ```json {3}
 "scripts": {
   "start": "npm run dev",
@@ -72,7 +72,7 @@ npm i nodemon -D
 ```
 
 ## 使用VSCode调试
-按`F5`调出配置文件`.vscode\launch.json`,修改
+按`F5`调出配置文件`.vscode\launch.json`,修改：
 ```json
 {
   "name": "运行Mu-Shaper",
@@ -96,13 +96,13 @@ npm i nodemon -D
 ```
 
 ## 使用Standard Style
-[JavaScript Standard Style][7]：代码风格，主要规则有使用两个空格、字符串使用单引号、无分号等
-standard配合typescript有BUG，所以安装standardx，见[详情][8]
+[JavaScript Standard Style][7]：代码风格，主要规则有使用两个空格、字符串使用单引号、无分号等。
+`standard`配合`typescript`有BUG，所以安装`standardx`，见[详情][8]。
 ```cmd
 npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
-在`package.json`中添加
+在`package.json`中添加：
 ```json {4}
 "scripts": {
   "start": "npm run dev",
@@ -111,6 +111,66 @@ npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 },
 // 运行 npm run lint
 ```
+
+## 使用joi-router
+[koa-joi-router][4]：基于`koa-router`、`joi`的路由，自带参数验证功能、请求体解析功能，配合`koa-joi-router-docs`可实现swagger文档功能。
+```cmd
+npm i koa-joi-router -S
+```
+
+例子：
+```ts
+import * as Koa from 'koa'
+import * as router from 'koa-joi-router'
+const Joi = router.Joi
+const admin = router()
+// 基础请求
+admin.get('/', async (ctx) => {
+  ctx.body = 'hello world!'
+})
+// 带验证的请求
+routers.route({
+  method: 'post',
+  path: '/signup',
+  validate: {
+    body: {
+      email: Joi.string().lowercase().email().required(),
+    },
+    // 可选值有：form、json、multipart，GET请求不需要设置
+    type: 'json',
+    // 出参也可以校验
+    output: {
+      200: {
+        body: {
+          userId: Joi.string().required(),
+          email: Joi.string().lowercase().email().required()
+        }
+      }
+    }
+  },
+  handler: async (ctx) => {
+    ctx.body = {
+      userId: '1001',
+      email: ctx.request.body.email
+    }
+    // 如果请求为'GET'，validate验证对象为'query'：
+    // 获取参数：ctx.request.body
+
+    // 如果请求为'POST'，validate验证对象为'body'，validate.type为'json'、'form'：
+    // 获取参数：ctx.request.body
+
+    // 如果请求为'POST'，validate.type为'multipart'：
+    // 获取参数：ctx.request.parts.field.name
+
+    // 如果路由为'/user/:id'：
+    // 获取id：ctx.request.params.id
+  }
+})
+// 
+app.use(admin.middleware())
+app.listen(3000)
+```
+**`Tips`：`GET`请求一定不要设置`validate.type`，血和泪的教训。**
 
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
