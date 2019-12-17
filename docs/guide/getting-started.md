@@ -157,7 +157,7 @@ routers.route({
       email: ctx.request.body.email
     }
     // 如果请求为'GET'，validate验证对象为'query'：
-    // 获取参数：ctx.request.body
+    // 获取参数：ctx.request.query
 
     // 如果请求为'POST'，validate验证对象为'body'，validate.type为'json'、'form'：
     // 获取参数：ctx.request.body
