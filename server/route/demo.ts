@@ -1,10 +1,12 @@
 'use strict'
-import { route as routers, Joi } from '../common/route'
-routers.prefix('/')
+import * as router from 'koa-joi-router'
+const Joi = router.Joi
+const routers = router()
+// 访问路由：ip:port/demo/
 routers.get('/', async (ctx) => {
   ctx.body = 'hello joi-router!'
 })
-
+// 访问路由：ip:port/demo/signup  [POST]
 routers.route({
   method: 'post',
   path: '/signup',
@@ -37,6 +39,7 @@ routers.route({
     }
   }
 })
+// 访问路由：ip:port/demo/signup
 routers.get('/signup', {
   validate: {
     query: {
@@ -68,4 +71,4 @@ routers.get('/signup', {
     body: ctx.request.body
   }
 })
-export default routers.middleware()
+export default routers
