@@ -11,4 +11,4 @@ glob.sync("**/index.ts", { cwd: __dirname }).forEach(async file => {
   const decorator = (await import('./' + folder)).default
   decorators.folder = decorator
 })
-export default Decorators
+export default decorators
