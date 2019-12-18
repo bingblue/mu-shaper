@@ -5,10 +5,10 @@ let decorators
  * @author 小牧COOL <xiaomucool@bingblue.com>
  * @updateAt 2019-12-18
  **/
-glob.sync("**/index.ts", { cwd: __dirname }).forEach(file => {
+glob.sync("**/index.ts", { cwd: __dirname }).forEach(async file => {
   const folder = file.replace(/\.[^.]*$/, "").replace("/index", "")
   if (folder === "index") return
-  const decorator = require("./" + folder).default
+  const decorator = (await import('./' + folder)).default
   decorators.folder = decorator
 })
 export default Decorators
