@@ -1,21 +1,22 @@
 'use strict'
-const router = require('koa-router')()
+import * as router from 'koa-joi-router'
+const route = router()
 const passport = require('koa-passport')
 
-router.post('/login', passport.authenticate('local', {
+route.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/login'
 }))
 
-router.get('/logout', function (ctx) {
+route.get('/logout', function (ctx) {
   ctx.logout()
   ctx.redirect('/')
 })
 
-router.get('/github', passport.authenticate('github'))
-router.get('/github/callback', passport.authenticate('github', {
+route.get('/github', passport.authenticate('github'))
+route.get('/github/callback', passport.authenticate('github', {
   successRedirect: '/',
   failureRedirect: '/login'
 }))
 
-module.exports = router
+export default route
