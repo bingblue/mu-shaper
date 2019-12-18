@@ -126,7 +126,7 @@
 - [ ] typeorm
 - [ ] ipv6
 - [X] pm2
-- [ ] jest
+- [X] jest
 - [ ] koa-passport
 - [ ] passport-jwt
 - [ ] redis

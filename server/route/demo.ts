@@ -23,7 +23,7 @@ routers.route({
           userId: Joi.string().required(),
           name: Joi.string(),
           params: Joi.object(),
-          body: Joi.object(),
+          body: Joi.object()
         }
       }
     }

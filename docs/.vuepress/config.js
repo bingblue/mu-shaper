@@ -41,11 +41,11 @@ module.exports = {
           },
           {
             text: 'API 参考',
-            link: '/api/'
+            link: '/reference/api'
           },
           {
-            text: '更新记录',
-            link: 'https://github.com/bingblue/mu-shaper/releases'
+            text: '任务计划',
+            link: '/reference/roadmap'
           }
         ],
         sidebar: [
