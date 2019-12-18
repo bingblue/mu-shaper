@@ -6,10 +6,11 @@ sidebarDepth: 0
 
 ## 2019-12-18
 #### 计划
-- koa-error
+- koa-onerror
 - koa-logger
 #### 完成
-- 
+- koa-onerror
+- winston
 ::: tip 备注
 :loudspeaker: 
 :::

@@ -15,7 +15,8 @@
   "dependencies": {
     "axios": "^0.19.0",
     "koa": "^2.11.0",
-    "koa-joi-router": "^6.0.1"
+    "koa-joi-router": "^6.0.1",
+    "koa-onerror": "^4.1.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.23",

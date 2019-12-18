@@ -87,7 +87,7 @@
   - 其他第三方登录         
   - koa-session-redis3    ⭐
   - koa-error             ⭐
-  - koa-logger            ⭐
+  - koa-logger            
 - 测试框架
   - jest                  ⭐
   - ava    
@@ -117,8 +117,9 @@
 - 中间件
   - [X] koa-joi-router
   - [ ] ~~koa-better-body~~（joi-router自带解析）
-  - [ ] koa-error
-  - [ ] koa-logger
+  - [X] koa-onerror
+  - [ ] ~~koa-logger~~
+  - [X] winston
 - [X] http2/https
 - [ ] Log->装饰器
 - [ ] 装饰器->工厂模式->处理try catch
@@ -131,14 +132,14 @@
 - [ ] passport-jwt
 - [ ] redis
 - [ ] koa-session-redis3
-- [ ] axios
+- [X] axios
 - [ ] 权限RBAC
 - [ ] oss-aliyun
 
 
 ## Mu-Shaper 涉及技术 (⭐: `表示已完成`)
 
-- [X] [Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
+- [ ] [Koa2][1]           -   下一代 Node.js web 框架 [中文文档][16]
 - [ ] [pug][2]            -   模板引擎(原名:Jade)
 - [ ] [MongoDB][3]        -   基于分布式文件存储的NOSQL数据库 [教程][17]
 - [ ] [mongoose][18]      -   ODM框架，对象文档映射
@@ -159,6 +160,7 @@
 
 - XiaoMuCOOL
 - 梦游
+
 ## License
 
 **Mu-Shaper** is licensed under the MTI LICENSE. [View the license file](https://github.com/bingblue/mu-shaper/blob/master/LICENSE)
