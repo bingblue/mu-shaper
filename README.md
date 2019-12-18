@@ -119,10 +119,10 @@
   - [ ] ~~koa-better-body~~（joi-router自带解析）
   - [X] koa-onerror
   - [ ] ~~koa-logger~~
-  - [X] winston
+  - [X] [winston][34][官网][35]
 - [X] http2/https
-- [ ] Log->装饰器
-- [ ] 装饰器->工厂模式->处理try catch
+- [ ] [Log->装饰器][33]
+- [ ] [装饰器][32]->工厂模式->处理try catch
 - [ ] mysql
 - [ ] typeorm
 - [ ] ipv6
@@ -199,3 +199,7 @@ Copyright © 2019 · 滨清科技 , Inc.
 [29]:https://github.com/venables/koa-helmet
 [30]:https://github.com/themikenicholson/passport-jwt
 [31]:https://standardjs.com/readme-zhcn.html
+[32]:https://typescript.bootcss.com/decorators.html
+[33]:https://fed.taobao.org/blog/taofed/do71ct/es7-decorator/?spm=taofed.blogs.header.11.fad55ac87HoEH1
+[34]:https://www.jianshu.com/p/09927f1f80eb
+[35]:https://github.com/winstonjs/winston
