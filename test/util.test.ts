@@ -1,9 +1,9 @@
-import { date, url } from '../server/common/util'
-test('请求/', async () => {
-  let result = date.isNumber('11')
+import { Util1, Util2 } from '../server/common/util'
+test('Util1是否数字方法', async () => {
+  let result = Util1.isNumber('11')
   expect(result).toBe(false)
 })
-test('请求post/signup', async () => {
-  let result = url.isNumber('11')
+test('Util2是否数字方法', async () => {
+  let result = Util2.isNumber('11')
   expect(result).toBe(false)
 })

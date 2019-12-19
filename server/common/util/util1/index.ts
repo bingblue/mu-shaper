@@ -1,4 +1,4 @@
-export namespace date {
+export namespace Util2 {
   function is (variable: any, type: string): boolean {
     return typeOf(variable) === type
   }
