@@ -1,46 +1,7 @@
-'use strict'
-require('colors')
-const crypto = require('crypto')
+export * from './url'
+export * from './date'
 
-class Util {
-  getMsg (body = {}, code = 200, msg = 'success') {
-    const result = {
-      code: code,
-      msg: msg,
-      body: body
-    }
-    return result
-  }
-
-  MD5 (text) {
-    return crypto.createHash('md5').update(text + '').digest('hex')
-  }
-
-  prefix (space, cb) {
-    space = space ? ' ' + space : ''
-    const prefix = '[Bingblue' + space + ']:'
-    console.log()
-    cb(prefix)
-    console.log()
-  }
-
-  info (msg, space) {
-    this.prefix(space, (prefix) => {
-      console.info(prefix.yellow, msg)
-    })
-  }
-
-  success (msg, space) {
-    this.prefix(space, (prefix) => {
-      console.info(prefix.green, msg)
-    })
-  }
-
-  error (msg, space) {
-    this.prefix(space, (prefix) => {
-      console.info(prefix.red, msg)
-    })
-  }
+let obj = {
+  a: '11',
+  b: '22'
 }
-
-module.exports = new Util()

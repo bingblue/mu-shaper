@@ -1,3 +1,4 @@
+'use strict'
 import * as glob from 'glob'
 let decorators
 /**

@@ -3,9 +3,11 @@ import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
 import route from './route'
+import * as util from './common/util'
 import Config from './config/config'
 const app = new Koa()
-
+console.log(util)
+// console.log(date.getMin('2019-12-19 13:50:22'))
 // 错误处理
 error(app)
 
