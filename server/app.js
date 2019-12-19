@@ -1,4 +1,3 @@
-'use strict'
 const Koa = require('koa')
 const glob = require('glob')
 const path = require('path')

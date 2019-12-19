@@ -18,7 +18,6 @@ npm i typescript ts-node -D
 
 新建app.ts在server目录下：
 ```ts
-'use strict'
 import * as Koa from 'koa'
 const app = new Koa()
 app.use(async ctx => {

@@ -1,4 +1,3 @@
-'use strict'
 import * as router from 'koa-joi-router'
 import * as glob from 'glob'
 const route = router()
@@ -13,7 +12,7 @@ route.get('/', async (ctx) => {
  * @updateAt 2019-12-18
  **/
 glob.sync('**/*.ts', { cwd: __dirname }).forEach(async file => {
-  let routes = (await import('./' + file)).default
+  const routes = (await import('./' + file)).default
   const prefixPath = '/' + file.replace(/\.[^.]*$/, '').replace('/index', '')
   if (prefixPath === '/index') return
   routes.prefix(prefixPath)

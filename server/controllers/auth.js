@@ -1,4 +1,3 @@
-'use strict'
 const passport = require('koa-passport')
 const Config = require('../config/config')
 const User = require('./user')

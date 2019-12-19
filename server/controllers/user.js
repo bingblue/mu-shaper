@@ -1,4 +1,3 @@
-'use strict'
 const UserModel = require('../models/user')
 const Counter = require('./counter')
 const Util = require('./util')

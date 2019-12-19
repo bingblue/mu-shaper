@@ -1,4 +1,3 @@
-'use strict'
 const mongoose = require('../config/db')
 
 const userSchema = new mongoose.Schema({

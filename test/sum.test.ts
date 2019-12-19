@@ -1,4 +1,3 @@
-'use strict'
 // import * as Axios from 'axios'
 const Axios = require('axios')
 test('2+2=4?', () => {

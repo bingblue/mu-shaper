@@ -1,13 +1,15 @@
-'use strict'
 import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
 import route from './route'
-import * as util from './common/util'
+// import {decorators} from './common/decorator'
 import Config from './config/config'
+
+import { date, url } from './common/util'
 const app = new Koa()
-console.log(util)
-// console.log(date.getMin('2019-12-19 13:50:22'))
+console.log(date.isNumber('11'))
+console.log(url.isNumber('11'))
+
 // 错误处理
 error(app)
 

@@ -1,4 +1,3 @@
-'use strict'
 import test from 'ava'
 import User from '../server/controllers/user'
 

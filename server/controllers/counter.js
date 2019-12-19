@@ -1,4 +1,3 @@
-'use strict'
 const CounterModel = require('../models/counter')
 const Config = require('../config/config')
 const Util = require('./util')

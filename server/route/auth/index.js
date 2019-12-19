@@ -1,4 +1,3 @@
-'use strict'
 import * as router from 'koa-joi-router'
 const route = router()
 const passport = require('koa-passport')

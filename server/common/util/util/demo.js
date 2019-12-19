@@ -1,4 +1,3 @@
-'use strict'
 require('colors')
 const crypto = require('crypto')
 
