@@ -1,40 +1,40 @@
-import * as base from './base'
+import { is } from './base'
 export const url = {
   isNumber (variable: any): boolean {
-    return base.is(variable, 'number')
+    return is(variable, 'number')
   },
   isString (variable: any): boolean {
-    return base.is(variable, 'string')
+    return is(variable, 'string')
   },
   isBoolean (variable: any): boolean {
-    return base.is(variable, 'boolean')
+    return is(variable, 'boolean')
   },
   isObject (variable: any): boolean {
-    return base.is(variable, 'object')
+    return is(variable, 'object')
   },
   isArray (variable: any): boolean {
     if (Array.isArray) return Array.isArray(variable)
-    return base.is(variable, 'array')
+    return is(variable, 'array')
   },
   isFunction (variable: any): boolean {
-    return base.is(variable, 'function')
+    return is(variable, 'function')
   },
   isSymbol (variable: any): boolean {
-    return base.is(variable, 'symbol')
+    return is(variable, 'symbol')
   },
   isRegExp (variable: any): boolean {
-    return base.is(variable, 'regexp')
+    return is(variable, 'regexp')
   },
   isDate (variable: any): boolean {
-    return base.is(variable, 'date')
+    return is(variable, 'date')
   },
   isError (variable: any): boolean {
-    return base.is(variable, 'error')
+    return is(variable, 'error')
   },
   isUndefined (variable: any): boolean {
-    return base.is(variable, 'undefined')
+    return is(variable, 'undefined')
   },
   isNull (variable: any): boolean {
-    return base.is(variable, 'null')
+    return is(variable, 'null')
   }
 }
