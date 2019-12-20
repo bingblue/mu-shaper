@@ -3,9 +3,10 @@ import * as Koa from 'koa'
 import * as error from 'koa-onerror'
 import route from './route'
 import { logger } from './common/middleware'
+import { Util3 } from './common/util'
 import Config from './config/config'
 const app = new Koa()
-
+console.log('====>', Util3.isArray('aa'))
 // 错误处理
 error(app)
 
