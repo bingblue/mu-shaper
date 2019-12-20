@@ -32,6 +32,11 @@
     "typescript": "^3.7.3",
     "vuepress": "^1.2.0"
   },
+  "eslintConfig": {
+    "rules": {
+      "no-inner-declarations": "off"
+    }
+  },
   "standardx": {
     "globals": [
       "test",
