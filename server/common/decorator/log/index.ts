@@ -14,4 +14,4 @@ function Log (type: string) {
     }
   }
 }
-export default Log
+export { Log }
