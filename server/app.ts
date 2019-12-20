@@ -2,11 +2,15 @@ import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
 import route from './route'
+import { logger } from './common/middleware'
 import Config from './config/config'
 const app = new Koa()
 
 // 错误处理
 error(app)
+
+// 日志中间件
+app.use(logger)
 
 // 加载路由
 app.use(route)
