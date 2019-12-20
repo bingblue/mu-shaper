@@ -10,7 +10,7 @@
     "bulid": "",
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
-    "test": "jest"
+    "test": "jest --preset ts-jest"
   },
   "dependencies": {
     "axios": "^0.19.0",
@@ -19,7 +19,8 @@
     "koa-onerror": "^4.1.0"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.23",
+    "@types/axios": "^0.14.0",
+    "@types/jest": "^24.0.24",
     "@types/koa": "^2.11.0",
     "@types/koa-joi-router": "^5.2.3",
     "@typescript-eslint/eslint-plugin": "^2.11.0",
@@ -28,6 +29,7 @@
     "jest": "^24.9.0",
     "nodemon": "^2.0.2",
     "standardx": "^5.0.0",
+    "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.3",
     "vuepress": "^1.2.0"
@@ -46,7 +48,9 @@
       "node_modules/**.js"
     ],
     "parser": "@typescript-eslint/parser",
-    "plugins": [ "@typescript-eslint/eslint-plugin" ]
+    "plugins": [
+      "@typescript-eslint/eslint-plugin"
+    ]
   },
   "license": "MIT",
   "repository": {

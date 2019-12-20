@@ -1,8 +1,4 @@
-// import * as Axios from 'axios'
-const Axios = require('axios')
-test('2+2=4?', () => {
-  expect(2 + 2).toBe(4)
-})
+import Axios from 'axios'
 test('请求/', async () => {
   const res = await Axios.get('http://localhost:3000/')
   console.log('[get/] res.data = ', res.data)
