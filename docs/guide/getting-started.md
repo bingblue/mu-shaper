@@ -21,7 +21,7 @@ npm i typescript ts-node -D
 import * as Koa from 'koa'
 const app = new Koa()
 app.use(async ctx => {
-  ctx.body = 'Hello World';
+  ctx.body = 'Hello World'
 })
 app.listen(3000)
 ```
@@ -30,7 +30,7 @@ app.listen(3000)
 ```json {3}
 "scripts": {
   "start": "npm run dev",
-  "dev": "ts-node server/app.ts",
+  "dev": "ts-node server/app.ts"
 },
 // 运行npm start
 // 现在，应用已经启动了！
@@ -68,7 +68,7 @@ npm i nodemon -D
 ```json {3}
 "scripts": {
   "start": "npm run dev",
-  "dev": "nodemon -e ts,tsx,json --exec ts-node ./server/app.ts",
+  "dev": "nodemon -e ts,tsx,json --exec ts-node ./server/app.ts"
 },
 // 运行 npm start
 ```
@@ -109,7 +109,7 @@ npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 "scripts": {
   "start": "npm run dev",
   "dev": "nodemon -e ts,tsx,json --exec ts-node ./server/app.ts",
-  "lint": "standardx --fix --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin **/*.ts",
+  "lint": "standardx --fix --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin **/*.ts"
 },
 // 运行 npm run lint
 ```
@@ -136,7 +136,7 @@ routers.route({
   path: '/signup',
   validate: {
     body: {
-      email: Joi.string().lowercase().email().required(),
+      email: Joi.string().lowercase().email().required()
     },
     // 可选值有：form、json、multipart，GET请求不需要设置
     type: 'json',
@@ -180,7 +180,7 @@ app.listen(3000)
 ```cmd
 // 安装jest
 npm i jest -D
-// 配合typescript使用，需要用到te-jest
+// 配合typescript使用，需要用到ts-jest
 npm i ts-jest -D
 ```
 

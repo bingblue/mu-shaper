@@ -4,15 +4,24 @@ sidebarDepth: 0
 ---
 # 任务计划
 
+## 2019-12-20
+#### 计划
+- winston
+- jest
+#### 完成
+- jest
+::: danger 未完成
+:loudspeaker: 周五了，吃鸡放松下。
+:::
+
 ## 2019-12-18
 #### 计划
 - koa-onerror
 - koa-logger
 #### 完成
 - koa-onerror
-- winston
-::: tip 备注
-:loudspeaker: 
+::: danger 未完成
+:loudspeaker: 忙着sjf项目，太累人了。
 :::
 
 ## 2019-12-17
@@ -20,13 +29,13 @@ sidebarDepth: 0
 - koa-joi-router
 #### 完成
 - koa-joi-router
-::: tip 备注
-:loudspeaker: 已完成
+::: tip 已完成
+:loudspeaker: 头发掉光了。
 :::
 
 ## 2019-12-16
 #### 计划
 - koa-joi-router
-::: danger 备注
-:slightly_frowning_face::imp: :bulb:未完成
+::: danger 未完成
+:slightly_frowning_face::imp: :bulb:
 :::
