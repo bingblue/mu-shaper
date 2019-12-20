@@ -1,4 +1,4 @@
-export namespace Util2 {
+export namespace Util1 {
   function is (variable: any, type: string): boolean {
     return typeOf(variable) === type
   }
