@@ -8,7 +8,7 @@
     "start": "npm run dev",
     "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
     "bulid": "",
-    "lint": "standardx --fix --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin **/*.ts",
+    "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
     "test": "jest"
   },
@@ -44,7 +44,9 @@
     ],
     "ignore": [
       "node_modules/**.js"
-    ]
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [ "@typescript-eslint/eslint-plugin" ]
   },
   "license": "MIT",
   "repository": {
