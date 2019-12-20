@@ -172,7 +172,29 @@ routers.route({
 app.use(admin.middleware())
 app.listen(3000)
 ```
+
 **`Tips`：`GET`请求一定不要设置`validate.type`，血和泪的教训。**
+
+## 使用jest
+[jest][9]：Facebook旗下的测试框架。
+```cmd
+// 安装jest
+npm i jest -D
+// 配合typescript使用，需要用到te-jest
+npm i ts-jest -D
+```
+
+然后修改下`package.json`：
+```json{5}
+"scripts": {
+  "start": "npm run dev",
+  "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
+  "lint": "standardx --fix **/*.ts",
+  "test": "jest --coverage --preset ts-jest"
+}
+```
+
+最后运行`npm run test`，就能看到测试报告了，`jest`默认测试`**.spec.ts`、`**.test.ts`或`__tests__`文件下的文件。
 
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
@@ -195,6 +217,7 @@ pm2 start server/app.ts --watch
 [6]:https://github.com/remy/nodemon#nodemon
 [7]:https://standardjs.com
 [8]:https://standardjs.com/index.html#typescript
+[9]:https://jestjs.io/
 ```
 
 [1]:https://koajs.com/
@@ -205,3 +228,4 @@ pm2 start server/app.ts --watch
 [6]:https://github.com/remy/nodemon#nodemon
 [7]:https://standardjs.com/readme-zhcn.html
 [8]:https://standardjs.com/index.html#typescript
+[9]:https://jestjs.io/
