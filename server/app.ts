@@ -18,6 +18,7 @@ app.use(route)
 // 启动服务
 app.listen(Config.website.port)
 
+// http2 启动服务
 // const server = http2.createSecureServer({
 //   cert: Config.website.cert,
 //   key: Config.website.key
