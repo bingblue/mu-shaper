@@ -1,8 +1,19 @@
 import { createLogger, transports, format } from 'winston'
 import * as DailyRotateFile from 'winston-daily-rotate-file'
-const { combine, timestamp, label, printf } = format
+const { combine, timestamp, label, printf, json, errors } = format
 const defaultFormat = printf(({ level, message, label, timestamp }) => {
-  return `[${timestamp}] [${label}] ${level}: ${message}`
+  return `${timestamp}-${label} [${level}]: ${message}`
+})
+const jsonFormat = printf(info => {
+  const log = {
+    timestamp: info.timestamp,
+    label: info.label,
+    pid: process.pid,
+    level: info.level,
+    message: info.message,
+    ...info
+  }
+  return JSON.stringify(log)
 })
 const logger = createLogger({
   format: combine(
@@ -12,23 +23,24 @@ const logger = createLogger({
     timestamp({
       format: 'YYYY-MM-DD HH:mm:ss.SSS'
     }),
-    // format.splat(),
-    format.json(),
-    // defaultFormat
+    errors({ stack: true }),
+    json(),
+    jsonFormat
   ),
   transports: [
     new transports.Console({
       format: combine(
-        format.colorize(),
+        format.colorize({
+          all: true
+        }),
+        timestamp({
+          format: 'HH:mm:ss'
+        }),
         defaultFormat
       )
     }),
-    new transports.Http({
-      level: 'warn',
-      format: format.json()
-    }),
     new DailyRotateFile({
-      filename: 'log-%DATE%.log',
+      filename: 'access-%DATE%.log',
       dirname: process.cwd() + '/logs/',
       datePattern: 'YYYY-MM-DD',
       maxSize: '20m',
@@ -39,7 +51,7 @@ const logger = createLogger({
       // error: 0, warn: 1, info: 2, http: 3, verbose: 4, debug: 5, silly: 6
       level: 'error',
       filename: 'error-%DATE%.log',
-      dirname: process.cwd() + '/logs/error/',
+      dirname: process.cwd() + '/logs/',
       datePattern: 'YYYY-MM-DD',
       maxSize: '20m',
       maxFiles: '14d'

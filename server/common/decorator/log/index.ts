@@ -1,4 +1,4 @@
-function Log (type: string) {
+function log (type: string) {
   return (target: any, name: string, descriptor: any) => {
     const method = descriptor.value
     descriptor.value = (...args) => {
@@ -14,4 +14,4 @@ function Log (type: string) {
     }
   }
 }
-export { Log }
+export { log }

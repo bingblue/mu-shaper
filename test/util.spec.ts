@@ -9,4 +9,9 @@ test('Util2是否数字方法', async () => {
 })
 test('测试日志', async () => {
   logger.info('第一次')
+  logger.error('我是error', {
+    module: 'aaa',
+    ccc: 'aaa'
+  })
+  expect(1).toBe(1)
 })

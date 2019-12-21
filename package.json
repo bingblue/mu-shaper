@@ -10,7 +10,7 @@
     "bulid": "",
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
-    "test": "jest --coverage --preset ts-jest"
+    "test": "jest --coverage --preset ts-jest ./test/util.spec.ts"
   },
   "dependencies": {
     "axios": "^0.19.0",
