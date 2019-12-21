@@ -7,7 +7,7 @@
   "scripts": {
     "start": "npm run dev",
     "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
-    "bulid": "",
+    "bulid": "ts-node ./test/decorator.spec.ts",
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
     "test": "jest --coverage --preset ts-jest ./test/util.spec.ts"
