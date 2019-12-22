@@ -10,7 +10,8 @@ sidebarDepth: 0
 - 处理try catch
 - typeorm
 #### 完成
-- 
+- Log装饰器
+- 处理try catch
 ::: danger 未完成
 :loudspeaker: 
 :::

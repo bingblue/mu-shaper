@@ -121,8 +121,8 @@
   - [ ] ~~koa-logger~~
   - [X] [winston][34][官网][35]
 - [X] http2/https
-- [ ] [Log->装饰器][33]
-- [ ] [装饰器][32]->工厂模式->处理try catch
+- [X] [Log->装饰器][33]
+- [X] [装饰器][32]->工厂模式->处理try catch
 - [ ] mysql
 - [ ] typeorm
 - [ ] ipv6
