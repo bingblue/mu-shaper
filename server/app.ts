@@ -19,10 +19,11 @@ app.use(route)
 app.listen(Config.website.port)
 
 // http2 启动服务
+// const { port, cert, key } = Config.website
 // const server = http2.createSecureServer({
-//   cert: Config.website.cert,
-//   key: Config.website.key
+//   cert: cert,
+//   key: key
 // }, app.callback())
-// server.listen(Config.website.port, () => {
-//   console.log(`服务已启动，请监听https://localhost:${Config.website.port} 端口。`)
+// server.listen(port, () => {
+//   console.log(`服务已启动，请监听https://localhost:${port} 端口。`)
 // })
