@@ -4,13 +4,24 @@ sidebarDepth: 0
 ---
 # 任务计划
 
-## 2019-12-21
+## 2019-12-22
 #### 计划
-- winston
+- Log装饰器
+- 处理try catch
+- typeorm
 #### 完成
 - 
 ::: danger 未完成
 :loudspeaker: 
+:::
+
+## 2019-12-21
+#### 计划
+- winston
+#### 完成
+- winston
+::: tip 完成
+:loudspeaker: 可喜可贺！
 :::
 
 ## 2019-12-20

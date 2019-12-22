@@ -1,6 +1,7 @@
 import { createLogger, transports, format } from 'winston'
 import * as DailyRotateFile from 'winston-daily-rotate-file'
-const { combine, timestamp, label, printf, json, errors } = format
+const { combine, timestamp, label, printf, json, errors, colorize } = format
+
 const defaultFormat = printf(({ level, message, label, timestamp }) => {
   return `${timestamp}-${label} [${level}]: ${message}`
 })
@@ -29,8 +30,9 @@ const logger = createLogger({
   ),
   transports: [
     new transports.Console({
+      level: 'silly',
       format: combine(
-        format.colorize({
+        colorize({
           all: true
         }),
         timestamp({
@@ -40,6 +42,7 @@ const logger = createLogger({
       )
     }),
     new DailyRotateFile({
+      level: 'http',
       filename: 'access-%DATE%.log',
       dirname: process.cwd() + '/logs/',
       datePattern: 'YYYY-MM-DD',

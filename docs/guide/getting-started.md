@@ -93,6 +93,24 @@ npm i nodemon -D
   "protocol": "inspector",
   "console": "integratedTerminal",
   "internalConsoleOptions": "neverOpen"
+},
+{
+  "name": "运行当前文件",
+  "type": "node",
+  "request": "launch",
+  "args": [
+    "${relativeFile}" // 调试当前文件
+  ],
+  "runtimeArgs": [
+    "--nolazy",
+    "-r",
+    "ts-node/register"
+  ],
+  "sourceMaps": true,
+  "cwd": "${workspaceRoot}",
+  "protocol": "inspector",
+  "console": "integratedTerminal",
+  "internalConsoleOptions": "neverOpen"
 }
 // 再按F5就可以调试了，可设置断点
 ```
