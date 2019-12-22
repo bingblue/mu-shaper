@@ -11,7 +11,7 @@ let development = {
       port: 3306,
       username: 'admin',
       password: 'admin',
-      database: "mu_shaper"
+      database: 'mu_shaper'
     }
   }
 }

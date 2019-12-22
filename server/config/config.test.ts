@@ -10,7 +10,7 @@ const test = {
       port: 1000,
       username: 'test',
       password: 'test',
-      database: "mu_shaper"
+      database: 'mu_shaper'
     }
   }
 }

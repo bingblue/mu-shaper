@@ -1,3 +1,3 @@
 import Config from '../../config'
-const mysql = ''
+const mysql = Config
 export { mysql }

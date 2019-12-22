@@ -1,4 +1,4 @@
-import * as http2 from 'http2'
+// import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
 import route from './route'
