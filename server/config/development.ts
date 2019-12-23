@@ -1,4 +1,4 @@
-import production from './config.production'
+import production from './production'
 let development = {
   website: {
     port: 3000,
