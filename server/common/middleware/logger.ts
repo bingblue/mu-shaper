@@ -1,9 +1,7 @@
 import { logger as log } from '../util'
-interface ctx {
-  method: string,
-  url: string
-}
-const logger = async (ctx: ctx, next: Function) => {
+import { Context } from 'koa'
+
+const logger = async (ctx: Context, next: Function) => {
   const start = Date.now()
   await next()
   const ms = Date.now() - start

@@ -10,7 +10,7 @@
     "bulid": "ts-node ./test/decorator.spec.ts",
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
-    "test": "jest --coverage --preset ts-jest ./test/util.spec.ts"
+    "test": "jest --coverage --preset ts-jest ./test/"
   },
   "dependencies": {
     "axios": "^0.19.0",
