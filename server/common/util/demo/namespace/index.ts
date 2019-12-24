@@ -1,5 +1,5 @@
 import { is } from './base'
-export namespace Util1 {
+export namespace NamespaceUtil {
   export function isNumber (variable: any): boolean {
     return is(variable, 'number')
   }

@@ -1,6 +1,5 @@
 import * as router from 'koa-joi-router'
 import User from '../../controllers/User'
-const user = new User()
 const Joi = router.Joi
 const route = router()
 // 访问路由：ip:port/user/
@@ -15,6 +14,6 @@ route.route({
       name: Joi.string().required()
     }
   },
-  handler: user.getByName
+  handler: User.getByName
 })
 export default route

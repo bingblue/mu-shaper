@@ -1,10 +1,14 @@
-import { Util1, Util2, logger } from '../server/common/util'
-test('Util1是否数字方法', async () => {
-  const result = Util1.isNumber('11')
+import { ClassUtil, NamespaceUtil, objectUtil, logger } from '../server/common/util'
+test('ClassUtil是否数字方法', async () => {
+  const result = ClassUtil.isNumber('11')
   expect(result).toBe(false)
 })
-test('Util2是否数字方法', async () => {
-  const result = Util2.isNumber('11')
+test('NamespaceUtil是否数字方法', async () => {
+  const result = NamespaceUtil.isNumber('11')
+  expect(result).toBe(false)
+})
+test('objectUtil是否数字方法', async () => {
+  const result = objectUtil.isNumber('11')
   expect(result).toBe(false)
 })
 test('测试日志', async () => {

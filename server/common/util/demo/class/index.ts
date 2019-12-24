@@ -1,5 +1,5 @@
 import { is } from './base'
-export class Util3 {
+export class ClassUtil {
   static isNumber (variable: any): boolean {
     return is(variable, 'number')
   }

@@ -1,5 +1,5 @@
 import { is } from './base'
-export const Util2 = {
+export const objectUtil = {
   isNumber (variable: any): boolean {
     return is(variable, 'number')
   },

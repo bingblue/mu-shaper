@@ -1,5 +1,5 @@
-import { logger as log } from '../util'
 import { Context } from 'koa'
+import { logger as log } from '../util'
 
 const logger = async (ctx: Context, next: Function) => {
   const start = Date.now()

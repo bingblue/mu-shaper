@@ -1,2 +1,2 @@
 export * from './Config'
-export * from './CtxBody'
+export * from './ContextBody'
