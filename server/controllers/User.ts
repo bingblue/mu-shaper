@@ -1,6 +1,5 @@
-import { Context } from "koa"
 import { getCustomRepository } from 'typeorm'
-import { ContextBody } from "../common/@types"
+import { ContextBody, Context } from "../common/@types"
 import UserRepository from "../services/UserRepository"
 
 class User {
