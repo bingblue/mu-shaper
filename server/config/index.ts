@@ -1,13 +1,14 @@
 import * as fs from 'fs'
 import * as path from 'path'
+import { Config } from '../common/@types'
 import development from './development'
 import production from './production'
 import test from './test'
-let Config: any = development
-if (process.env.NODE_ENV === 'production') Config = production
-if (process.env.NODE_ENV === 'test') Config = test
+let config: Config = development
+if (process.env.NODE_ENV === 'production') config = production
+if (process.env.NODE_ENV === 'test') config = test
 
-Config.website.cert = fs.readFileSync(path.join(__dirname, Config.website.cert))
-Config.website.key = fs.readFileSync(path.join(__dirname, Config.website.key))
+config.website.cert = fs.readFileSync(path.join(__dirname, config.website.cert))
+config.website.key = fs.readFileSync(path.join(__dirname, config.website.key))
 
-export default Config
+export default config

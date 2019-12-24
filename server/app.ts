@@ -1,9 +1,11 @@
 // import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
+import 'reflect-metadata'
+import config from './config'
 import route from './route'
 import { logger } from './common/middleware'
-import Config from './config'
+import { mysql } from './common/db'
 const app = new Koa()
 
 // 错误处理
@@ -15,11 +17,14 @@ app.use(logger)
 // 加载路由
 app.use(route)
 
+// 启动数据库
+mysql()
+
 // 启动服务
-app.listen(Config.website.port)
+app.listen(config.website.port)
 
 // http2 启动服务
-// const { port, cert, key } = Config.website
+// const { port, cert, key } = config.website
 // const server = http2.createSecureServer({
 //   cert: cert,
 //   key: key
