@@ -9,7 +9,7 @@ const mysql = async () => {
       type: 'mysql',
       logging: true,
       synchronize: true,
-      entities: ['server/models/*.ts'],
+      entities: ['server/models/*.ts'], // __dirname + '/server/models/*.{ts,js}'
       ...config.db.mysql
     })
     logger.info(`连接[${ database }]数据库成功！`)

@@ -1,7 +1,7 @@
-import { EntityRepository, Repository, getCustomRepository } from 'typeorm'
+import { EntityRepository, Repository } from 'typeorm'
 import { User } from '../models/User'
 
-@EntityRepository()
+@EntityRepository(User)
 export class UserRepository extends Repository<User> {
   findByName(name: string) {
     return this.createQueryBuilder('user')
@@ -9,5 +9,3 @@ export class UserRepository extends Repository<User> {
       .getMany()
   }
 }
-// const userRepository = getCustomRepository(UserRepository)
-// const timber = await userRepository.findByName("Timber")
