@@ -3,7 +3,7 @@ import * as DailyRotateFile from 'winston-daily-rotate-file'
 const { combine, timestamp, label, printf, json, errors, colorize } = format
 
 const defaultFormat = printf(({ level, message, label, timestamp }) => {
-  return `${timestamp}-${label} [${level}]: ${message}`
+  return `${timestamp} ${label} [${level}]: ${message}`
 })
 const jsonFormat = printf(info => {
   const log = {
