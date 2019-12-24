@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
 
 @Entity()
 class User {
@@ -8,7 +8,7 @@ class User {
   @Column()
   name: string
 
-  @Column("text")
+  @Column('text')
   address: string
 }
 export default User

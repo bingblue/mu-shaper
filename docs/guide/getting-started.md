@@ -36,7 +36,7 @@ app.listen(3000)
 // 现在，应用已经启动了！
 ```
 
-让我们访问`localhost:3000`就能看到`Hello World`了，你离CEO的距离只差**99**个`Hello World`了，加油！
+让我们访问`localhost:3000`就能看到`Hello World`了，你距离CEO只差**99**个`Hello World`了，加油！
 
 ## 使用http2
 
@@ -120,6 +120,18 @@ npm i nodemon -D
 `standard`配合`typescript`有BUG，所以安装`standardx`，见[详情][8]。
 ```cmd
 npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
+```
+
+修改其中规则：
+```js
+// 不建议在{}代码块内部声明变量或函数
+"no-inner-declarations": "off",
+// 不建议给变量动态赋await的值
+"require-atomic-updates": "off",
+// 不建议使用any类型
+"@typescript-eslint/no-explicit-any": "off",
+// 方法必须定义返回类型，这条规则还是打开着好
+"@typescript-eslint/explicit-function-return-type": "error"
 ```
 
 在`package.json`中添加：
@@ -214,6 +226,19 @@ npm i ts-jest -D
 
 最后运行`npm run test`，就能看到测试报告了，`jest`默认测试`**.spec.ts`、`**.test.ts`或`__tests__`文件下的文件。
 
+## 使用typeorm
+[typeorm][10]：最佳ORM框架，支持 MySQL、Postgres、SQLite、SQL Server、Oracle、MongoDB等。
+
+[mysql2][12]：我们使用`mysql数据库`，NPM模块`mysql2`比模块`mysql`性能更好，支持的API更多。
+
+[reflect-metadata][11]：为注解添加元数据，`typeorm`会用到。
+```cmd
+// 安装
+npm i typeorm mysql2 reflect-metadata -S
+```
+
+
+
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
 ```cmd
@@ -236,6 +261,9 @@ pm2 start server/app.ts --watch
 [7]:https://standardjs.com
 [8]:https://standardjs.com/index.html#typescript
 [9]:https://jestjs.io/
+[10]:https://github.com/typeorm/typeorm
+[11]:https://github.com/rbuckton/reflect-metadata
+[12]:https://github.com/sidorares/node-mysql2
 ```
 
 [1]:https://koajs.com/
@@ -247,3 +275,6 @@ pm2 start server/app.ts --watch
 [7]:https://standardjs.com/readme-zhcn.html
 [8]:https://standardjs.com/index.html#typescript
 [9]:https://jestjs.io/
+[10]:https://github.com/typeorm/typeorm
+[11]:https://github.com/rbuckton/reflect-metadata
+[12]:https://github.com/sidorares/node-mysql2

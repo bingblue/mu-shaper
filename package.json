@@ -40,8 +40,16 @@
     "vuepress": "^1.2.0"
   },
   "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
     "rules": {
-      "no-inner-declarations": "off"
+      "no-inner-declarations": "off",
+      "require-atomic-updates": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/explicit-function-return-type": "error"
     }
   },
   "standardx": {

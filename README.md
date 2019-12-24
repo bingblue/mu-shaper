@@ -123,8 +123,8 @@
 - [X] http2/https
 - [X] [Log->装饰器][33]
 - [X] [装饰器][32]->工厂模式->处理try catch
-- [ ] mysql
-- [ ] typeorm
+- [X] mysql
+- [X] typeorm
 - [ ] ipv6
 - [X] pm2
 - [X] jest
@@ -135,6 +135,8 @@
 - [X] axios
 - [ ] 权限RBAC
 - [ ] oss-aliyun
+- [ ] 日志记录运行错误
+- [ ] 日志记录http请求和返回内容
 
 
 ## Mu-Shaper 涉及技术 (⭐: `表示已完成`)

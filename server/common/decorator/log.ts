@@ -1,8 +1,8 @@
 import { logger } from '../util'
 function log (type: string) {
-  return (target: any, name: string, descriptor: PropertyDescriptor) => {
+  return (target: any, name: string, descriptor: PropertyDescriptor): any => {
     const method = descriptor.value
-    descriptor.value = (...args: any[]) => {
+    descriptor.value = (...args: any[]): any => {
       const meta = {
         method: name,
         args: args,
