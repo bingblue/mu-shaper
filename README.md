@@ -59,6 +59,7 @@
   - [ ] 记录http请求和返回内容
   - [ ] 类上增加log注解
   - [ ] 配合typeorm日志
+  - [ ] 全局对象process获取当前文件夹可行否？
 
 ## Mu-Shaper v0.2 TODO List
 - [ ] ipv6
@@ -68,6 +69,7 @@
 - [ ] koa-server-push 
 - [ ] koa-helmet
 - [ ] 限流中间件
+- [ ] gzip
 - [ ] 其他安全类中间件
 
 ## Mu-Shaper v0.3 TODO List
@@ -86,6 +88,11 @@
 - [ ] 微系统
   - [ ] 微服务
   - [ ] 微前端
+- [ ] 爬虫
+  - [ ] puppeteer
+  - [ ] 定时任务
+    - [ ] node-schedule
+    - [ ] rabbitmq消息队列
 - [ ] 可自定义功能
 
 ## Mu-Shaper GraphQL分支版本 TODO List
