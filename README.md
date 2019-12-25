@@ -200,7 +200,7 @@ $ npm start
 
 **Mu-Shaper** is licensed under the MTI LICENSE. [View the license file](https://github.com/bingblue/mu-shaper/blob/master/LICENSE)
 
-Copyright © 2019 · 滨清科技 , Inc. 
+Copyright © 2020 · 滨清科技 , Inc. 
 
 
 [1]:http://koajs.com/
