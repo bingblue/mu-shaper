@@ -101,6 +101,9 @@
 - [ ] GraphQL prisma 2.0
 - [ ] 实现上面功能
 
+## Mu-Shaper v0.6 TODO List
+- [ ] vue3.0 重构client模板
+
 ## Usage
 ```cmd
 # Npm install(安装依赖)
