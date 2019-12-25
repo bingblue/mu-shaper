@@ -57,14 +57,14 @@
 - ipv6
 - pm2
 - axios
-- 微信功能（v2）
-- 邮件/短信（v2）
+- 微信功能
+- 邮件/短信
 - oss对象存储服务
   - aliyun     ⭐
   - qiniu    
 - 权限RBAC
-- Docker（v2）
-- 持续集成（v2）
+- Docker
+- 持续集成
   - jenkins               ⭐
   - github actions 
 - 解析请求中间件
@@ -91,24 +91,24 @@
 - 测试框架
   - jest                  ⭐
   - ava    
-- 支付系统（v2）
+- 支付系统
   - ali pay               ⭐  
   - wechat pay
-- 微系统（v3）
+- 微系统
   - 微服务
   - 微前端
-- 自动生成代码（v2）
-- 自动生成API文档（koa-joi-router-docs）（v2）
-- 可自定义功能（v2）
-- GraphQL prisma 2.0（v4）
-- 聊天系统 websocket（v3）
-- 博客系统（v3）
+- 自动生成代码
+- 自动生成API文档（koa-joi-router-docs）
+- 可自定义功能
+- GraphQL prisma 2.0
+- 聊天系统 websocket
+- 博客系统
   - markdown编辑器
 - 文档，使用说明
   - vuepress              ⭐
   - gatsby
 
-## Mu-Shaper v1.0 TODO List
+## Mu-Shaper v0.1 TODO List
 - [X] Koa2
 - [X] 目录定义
 - [X] Typescript
@@ -125,19 +125,53 @@
 - [X] [装饰器][32]->工厂模式->处理try catch
 - [X] mysql
 - [X] typeorm
-- [ ] ipv6
+- [X] axios
 - [X] pm2
 - [X] jest
 - [ ] koa-passport
 - [ ] passport-jwt
+- [ ] ipv6
+- [ ] 自动生成API文档
+  - [ ] koa-joi-router-docs
+  - [ ] koa-joi-router-to-swagger-json
+- [ ] 日志增强
+  - [ ] 记录运行错误
+  - [ ] 记录http请求和返回内容
+  - [ ] 类上增加log注解
+  - [ ] 配合typeorm日志
+- [ ] docker
+- [ ] github actions
+
+## Mu-Shaper v0.2 TODO List
 - [ ] redis
 - [ ] koa-session-redis3
-- [X] axios
-- [ ] 权限RBAC
 - [ ] oss-aliyun
-- [ ] 日志记录运行错误
-- [ ] 日志记录http请求和返回内容
+- [ ] koa-server-push 
+- [ ] koa-helmet
+- [ ] 限流中间件
+- [ ] 其他安全类中间件
 
+## Mu-Shaper v0.3 TODO List
+- [ ] 权限RBAC
+- [ ] 邮件/短信
+- [ ] 支付系统-alipay
+
+## Mu-Shaper v0.4 TODO List
+- [ ] 微信功能
+- [ ] 聊天系统 websocket
+- [ ] 博客系统
+  - [ ] markdown编辑器
+
+## Mu-Shaper v0.5 TODO List
+- [ ] 自动生成代码
+- [ ] 微系统
+  - [ ] 微服务
+  - [ ] 微前端
+- [ ] 可自定义功能
+
+## Mu-Shaper GraphQL分支版本 TODO List
+- [ ] GraphQL prisma 2.0
+- [ ] 实现上面功能
 
 ## Mu-Shaper 涉及技术 (⭐: `表示已完成`)
 
