@@ -65,7 +65,6 @@
 - [ ] ipv6
 - [ ] redis
 - [ ] koa-session-redis3
-- [ ] oss-aliyun
 - [ ] koa-server-push 
 - [ ] koa-helmet
 - [ ] 限流中间件
@@ -76,6 +75,7 @@
 ## Mu-Shaper v0.3 TODO List
 - [ ] client - vue模板
 - [ ] 权限RBAC
+- [ ] oss-aliyun
 - [ ] 邮件/短信
 - [ ] 支付系统-alipay
 
