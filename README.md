@@ -33,7 +33,7 @@
 - [X] Typescript
 - [X] [JavaScript Standard 代码风格][31]
 - [X] 文档-vuepress
-- 中间件
+- [X] 中间件
   - [X] koa-joi-router
   - [ ] ~~koa-better-body~~（joi-router自带解析）
   - [X] koa-onerror
@@ -52,13 +52,13 @@
 - [ ] 自动生成API文档
   - [ ] koa-joi-router-docs
   - [ ] koa-joi-router-to-swagger-json
+- [ ] docker
+- [ ] github actions
 - [ ] 日志增强
   - [ ] 记录运行错误
   - [ ] 记录http请求和返回内容
   - [ ] 类上增加log注解
   - [ ] 配合typeorm日志
-- [ ] docker
-- [ ] github actions
 
 ## Mu-Shaper v0.2 TODO List
 - [ ] ipv6
