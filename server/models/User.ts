@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, VersionColumn } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, VersionColumn, AfterLoad } from 'typeorm'
 
 @Entity()
 class User {
@@ -46,5 +46,10 @@ class User {
     comment: '版本号'
   })
   _v: string
+
+  @AfterLoad()
+  timeHelper() {
+    this._v = `版本号为：${this._v}`
+  }
 }
 export default User
