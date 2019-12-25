@@ -123,15 +123,24 @@ npm i standardx @typescript-eslint/parser @typescript-eslint/eslint-plugin -D
 ```
 
 修改其中规则：
-```js
-// 不建议在{}代码块内部声明变量或函数
-"no-inner-declarations": "off",
-// 不建议给变量动态赋await的值
-"require-atomic-updates": "off",
-// 不建议使用any类型
-"@typescript-eslint/no-explicit-any": "off",
-// 方法必须定义返回类型，这条规则还是打开着好
-"@typescript-eslint/explicit-function-return-type": "error"
+```json{9,11,13}
+"eslintConfig": {
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    // 不建议在{}代码块内部声明变量或函数
+    "no-inner-declarations": "off",
+    // 不建议给变量动态赋await的值
+    "require-atomic-updates": "off",
+    // 不建议使用any类型
+    "@typescript-eslint/no-explicit-any": "off",
+    // 方法必须定义返回类型，这条规则还是打开着好
+    "@typescript-eslint/explicit-function-return-type": "error"
+  }
+}
 ```
 
 在`package.json`中添加：
@@ -222,6 +231,13 @@ npm i ts-jest -D
   "lint": "standardx --fix **/*.ts",
   "test": "jest --coverage --preset ts-jest"
 }
+```
+
+新建`sum.spec.ts`
+```ts
+test('测试加法', () => {
+  expect(1+1).toBe(2)
+})
 ```
 
 最后运行`npm run test`，就能看到测试报告了，`jest`默认测试`**.spec.ts`、`**.test.ts`或`__tests__`文件下的文件。
