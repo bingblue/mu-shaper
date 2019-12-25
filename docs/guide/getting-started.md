@@ -237,7 +237,46 @@ npm i ts-jest -D
 npm i typeorm mysql2 reflect-metadata -S
 ```
 
+创建`models`文件夹：
+```ts
+// models/User.ts
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+@Entity()
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number
 
+  @Column()
+  name: string
+
+  @Column()
+  age: number
+}
+```
+操作数据库：
+```ts
+// app.ts
+import 'reflect-metadata'
+import { createConnection } from 'typeorm'
+import { User } from './moderls/User'
+createConnection({
+  type: 'mysql',
+  host: 'localhost',
+  port: 3306,
+  username: 'root',
+  password: 'admin',
+  database: 'test',
+  entities: [User],
+  synchronize: true
+}).then(async connection => {
+  const user = new User()
+  user.name = 'Alice'
+  user.age = 25
+  let userRepository = connection.getRepository(User)
+  await userRepository.save(user)
+  console.log('保存用户成功！')
+}).catch(error => console.log(error))
+```
 
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
