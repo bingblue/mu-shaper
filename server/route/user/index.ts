@@ -6,6 +6,7 @@ const route = router()
 route.get('/', async (ctx) => {
   ctx.body = 'user/index.ts'
 })
+// 访问路由：ip:port/user/find
 route.route({
   method: 'get',
   path: '/find',
@@ -14,6 +15,19 @@ route.route({
       name: Joi.string().required()
     }
   },
-  handler: User.getByName
+  handler: User.find
+})
+// 访问路由：ip:port/user/update
+route.route({
+  method: 'get',
+  path: '/update',
+  validate: {
+    query: {
+      id: Joi.number().required(),
+      name: Joi.string(),
+      address: Joi.string()
+    }
+  },
+  handler: User.update
 })
 export default route

@@ -8,5 +8,17 @@ class UserRepository extends Repository<User> {
       .where('user.name = :name', { name })
       .getMany()
   }
+  saveUser (user: any): object {
+    let newUser = new User()
+    newUser.name = user.name
+    newUser.address = user.address
+    return this.save(newUser)
+  }
+  async updateUser (user: any): Promise<object> {
+    let newUser = await this.findOne(user.id)
+    newUser.name = user.name
+    newUser.address = user.address
+    return this.save(newUser)
+  }
 }
 export default UserRepository
