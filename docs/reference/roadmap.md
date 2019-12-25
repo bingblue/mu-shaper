@@ -28,7 +28,7 @@ sidebarDepth: 0
 - [ ] typeorm
 
 ::: danger 未完成
-:loudspeaker: typeorm有点多，教程还没写。
+:slightly_frowning_face: typeorm有点多，教程还没写。
 :::
 
 ## 2019-12-21
@@ -45,7 +45,7 @@ sidebarDepth: 0
 - [X] ~~jest~~
 
 ::: danger 未完成
-:loudspeaker: 周五了，吃鸡放松下。
+:slightly_frowning_face: 周五了，吃鸡放松下。
 :::
 
 ## 2019-12-18
@@ -54,7 +54,7 @@ sidebarDepth: 0
 - [ ] koa-logger
 
 ::: danger 未完成
-:loudspeaker: 忙着sjf项目，太累人了。
+:slightly_frowning_face: 忙着sjf项目，太累人了。
 :::
 
 ## 2019-12-17
