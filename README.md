@@ -54,14 +54,14 @@
   - [ ] koa-joi-router-to-swagger-json
 - [ ] docker
 - [ ] github actions
+
+## Mu-Shaper v0.2 TODO List
 - [ ] 日志增强
   - [ ] 记录运行错误
   - [ ] 记录http请求和返回内容
   - [ ] 类上增加log注解
   - [ ] 配合typeorm日志
   - [ ] 全局对象process获取当前文件夹可行否？
-
-## Mu-Shaper v0.2 TODO List
 - [ ] ipv6
 - [ ] redis
 - [ ] koa-session-redis3
@@ -74,6 +74,7 @@
 - [ ] 删除所有无关文件
 
 ## Mu-Shaper v0.3 TODO List
+- [ ] client - vue模板
 - [ ] 权限RBAC
 - [ ] 邮件/短信
 - [ ] 支付系统-alipay
