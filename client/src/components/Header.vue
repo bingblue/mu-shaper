@@ -10,10 +10,10 @@
         <ul>
           <template v-if="!user.token">
             <li>
-              <router-link to="/login"><el-button type="primary" plain size="small"><icon name="regular/user"></icon> 登录</el-button></router-link>
+              <router-link to="/login"><el-button type="primary" plain size="small"><iconfont icon="user"></iconfont> 登录</el-button></router-link>
             </li>
             <li>
-              <router-link to="/reg"><el-button type="success" plain size="small"><icon name="address-book"></icon> 注册</el-button></router-link>
+              <router-link to="/reg"><el-button type="success" plain size="small"><iconfont icon="menu-pro"></iconfont> 注册</el-button></router-link>
             </li>
           </template>
           <template v-if="user.token">

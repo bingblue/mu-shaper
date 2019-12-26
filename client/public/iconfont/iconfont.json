@@ -1,0 +1,44 @@
+{
+  "id": "1466999",
+  "name": "onestop",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "397733",
+      "name": "搜索",
+      "font_class": "search",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "785013",
+      "name": "菜单",
+      "font_class": "menu",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    },
+    {
+      "icon_id": "7587721",
+      "name": "菜单",
+      "font_class": "menu-color",
+      "unicode": "e602",
+      "unicode_decimal": 58882
+    },
+    {
+      "icon_id": "9626840",
+      "name": "菜单",
+      "font_class": "menu-pro",
+      "unicode": "e866",
+      "unicode_decimal": 59494
+    },
+    {
+      "icon_id": "10143467",
+      "name": "用户",
+      "font_class": "user",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    }
+  ]
+}

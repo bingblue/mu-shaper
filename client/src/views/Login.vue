@@ -7,12 +7,12 @@
         <el-form :model="loginInfo" label-position="top" class="login-form">
           <el-form-item prop="userPhone">
             <el-input v-model="loginInfo.userPhone" auto-complete="new-password" placeholder="请输入手机号">
-              <icon slot="prefix" name="mobile-alt"></icon>
+              <iconfont slot="prefix" icon="search"></iconfont>
             </el-input>
           </el-form-item>
           <el-form-item prop="userPwd">
             <el-input v-model="loginInfo.userPwd" type="password" auto-complete="new-password" placeholder="请输入密码">
-              <icon slot="prefix" name="lock"></icon>
+              <iconfont slot="prefix" icon="menu-pro"></iconfont>
             </el-input>
           </el-form-item>
           <el-form-item class="btn-submit">

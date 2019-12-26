@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import Axios from 'axios'
 import element from 'element-ui'
+import Iconfont from '@/components/Iconfont'
 // 按需引入
 // import { Button, Select, Loading, MessageBox, Notification, Message } from 'element-ui'
 
@@ -19,6 +20,7 @@ import element from 'element-ui'
 // Vue.prototype.$message = Message
 
 Vue.use(element)
+Vue.component('iconfont', Iconfont)
 Vue.prototype.$http = Axios
 
 /**
