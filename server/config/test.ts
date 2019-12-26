@@ -12,6 +12,14 @@ const test = {
       password: 'test',
       database: 'mu_shaper'
     }
+  },
+  auth: {
+    jwt: {
+      secret: 'test',
+      expiresIn: '1h',
+      issuer: 'www.xx.com',
+      audience: 'www.xx.com'
+    }
   }
 }
 export default test

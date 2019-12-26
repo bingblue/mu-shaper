@@ -13,6 +13,14 @@ let development = {
       password: 'admin',
       database: 'mu_shaper'
     }
+  },
+  auth: {
+    jwt: {
+      secret: 'localhost',
+      expiresIn: '2h',
+      issuer: 'localhost',
+      audience: 'localhost'
+    }
   }
 }
 

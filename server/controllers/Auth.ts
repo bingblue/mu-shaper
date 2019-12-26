@@ -1,24 +1,25 @@
 import passport from 'koa-passport'
+import JWT from 'jsonwebtoken'
 import { ContextBody, Context } from '../common/@types'
+import config from '../config'
 import User from './User'
 
 class Auth {
-  static async find (ctx: Context): Promise<void> {
-    const user = await User.find(ctx.request.query.name)
+  static async login (ctx: Context): Promise<void> {
+    
   }
-  static async jwt (ctx: Context): Promise<void> {
-    const user = await User.find(ctx.request.query.name)
+  static async logout (ctx: Context): Promise<void> {
+    
   }
-  serializeUser (): void {
-    passport.serializeUser((user: any, done: Function): void => {
-      done(null, user)
-    })
+  static async github (ctx: Context): Promise<void> {
+    
   }
-  deserializeUser (): void {
-    passport.deserializeUser(async function (id: any, done: Function) {
-      const user = await User.find(id)
-      done(null, user)
-    })
+  static async githubcb (ctx: Context): Promise<void> {
+    
+  }
+  createJWT(id: string): string {
+    const { secret, ...opts } = config.auth.jwt
+    return JWT.sign({ id }, secret, opts)
   }
 }
 export default Auth
