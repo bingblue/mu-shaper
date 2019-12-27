@@ -21,10 +21,12 @@ export interface Config {
   }
   /** 鉴权配置 */
   auth: {
+    /** 不需要权限验证的路由 */
+    ignorePath: Array<string>
     /** jwt配置 */
     jwt: {
       /** 密钥 */
-      secret: string
+      secretOrKey: string
       /** 有效期 */
       expiresIn: string
       /** 签发者网址 */

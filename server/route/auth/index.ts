@@ -27,11 +27,14 @@ route.route({
   path: '/join',
   validate: {
     type: 'json',
-    body: {
+    body: Joi.object({
       username: Joi.string().required(),
-      password: Joi.string().required()
-    }
-    
+      password: Joi.string().required(),
+      phone: Joi.string().required(),
+      address: Joi.string()
+    }).options({
+      allowUnknown: true
+    })
   },
   handler: Auth.join
 })

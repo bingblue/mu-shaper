@@ -14,8 +14,9 @@ const test = {
     }
   },
   auth: {
+    ignorePath: ['/', '/auth'],
     jwt: {
-      secret: 'test',
+      secretOrKey: 'test',
       expiresIn: '1h',
       issuer: 'www.xx.com',
       audience: 'www.xx.com'

@@ -4,7 +4,7 @@ import * as error from 'koa-onerror'
 import * as cors from 'koa2-cors'
 import config from './config'
 import route from './route'
-import { logger, passport } from './common/middleware'
+import { logger, permission } from './common/middleware'
 import { mysql } from './common/db'
 import 'reflect-metadata'
 const app = new Koa()
@@ -17,7 +17,8 @@ app.use(cors())
 
 // 日志中间件
 app.use(logger)
-app.use(passport.initialize())
+// JWT验证中间件
+app.use(permission)
 
 // 加载路由
 app.use(route)

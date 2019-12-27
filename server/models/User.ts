@@ -8,16 +8,19 @@ class User {
   id: number
 
   @Column({
+    unique: true,
     comment: '用户名'
   })
   username: string
 
   @Column({
+    default: '人妖',
     comment: '密码'
   })
   password: string
 
   @Column({
+    nullable: true,
     comment: '姓名'
   })
   name: string
@@ -31,13 +34,15 @@ class User {
   sex: string
 
   @Column({
-    unique: false,
+    unique: true,
+    nullable: true,
     comment: '手机号'
   })
   phone: string
 
   @Column({
     type: 'text',
+    nullable: true,
     comment: '地址'
   })
   address: string

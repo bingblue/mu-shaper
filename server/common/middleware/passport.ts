@@ -1,46 +1,46 @@
-import * as passport from 'koa-passport'
 import * as JWT from 'jsonwebtoken'
-import config from '../../config'
+import * as passport from 'koa-passport'
+import { getCustomRepository } from 'typeorm'
 import { Strategy as LocalStrategy } from 'passport-local'
+import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
+import config from '../../config'
+import UserService from '../../services/User'
 
 function createJWT(id: string): string {
-  const { secret, ...opts } = config.auth.jwt
-  return JWT.sign({ id }, secret, opts)
+  const { secretOrKey, ...opts } = config.auth.jwt
+  return JWT.sign({ id }, secretOrKey, opts)
 }
-passport.use(new LocalStrategy(async (username, password, done) => {
-  if(username == 'aaa') return done(null, false)
-  const user = {
-    username,
-    password,
-    token: createJWT(username)
-  }
-  return done(null, user)
-}))
-// passport.serializeUser(function (user, done) {
-//   done(null, user._id)
+// 序列化ctx.login()触发
+// passport.serializeUser((user: any, done: Function): void => {
+//   done(null, user.id)
 // })
 
-// passport.deserializeUser(async function (id, done) {
-//   try {
-//     const user = await User.getById(id)
-//     done(null, user)
-//   } catch (err) {
-//     done(err)
-//   }
+// // 反序列化
+// passport.deserializeUser(async (id, done) => {
+//   const userRepository = getCustomRepository(UserService)
+//   const user = await userRepository.findByName('xiaomu')
+//   done(null, user)
 // })
 
 // 普通登录
-// passport.use(new LocalStrategy(function (userName, userPwd, done) {
-//   User.getByUserName(userName)
-//   .then(user => {
-//     if (user.body && Util.MD5(userPwd) === user.body.userPwd) {
-//       done(null, user.body)
-//     } else {
-//       done(null, false)
-//     }
-//   })
-//   .catch(err => done(err))
-// }))
+passport.use(new LocalStrategy(async (username, password, done) => {
+  const userRepository = getCustomRepository(UserService)
+  const user = await userRepository.findByAuthentication(username, password)
+  if(!user) return done(null, false)
+  user.token = createJWT(user.id)
+  return done(null, user)
+}))
+
+// JWT认证
+let jwtOpt = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
+  ...config.auth.jwt
+}
+passport.use(new JwtStrategy(jwtOpt, async (jwt_payload, done) => {
+  const userRepository = getCustomRepository(UserService)
+  const user = await userRepository.findOne(jwt_payload.id)
+  return done(null, user || false)
+}))
 
 // github登录
 // const GitHubStrategy = require('passport-github2').Strategy

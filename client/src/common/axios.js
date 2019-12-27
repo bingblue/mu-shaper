@@ -25,7 +25,7 @@ Axios.interceptors.response.use(response => {
   console.log('服务器=>', response)
   Message({
     type: 'error',
-    message: data.msg
+    message: data.message
   })
   return new Promise(() => {})
 }, err => {

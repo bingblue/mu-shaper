@@ -5,18 +5,23 @@
       <el-main class="reg">
         <h1>用户注册</h1>
         <el-form :model="regInfo" status-icon label-position="top" class="reg-form" :rules="rules" ref="regForm">
-          <el-form-item prop="userPhone">
-            <el-input v-model="regInfo.userPhone" auto-complete="new-password" placeholder="请输入手机号">
+          <el-form-item prop="username">
+            <el-input v-model="regInfo.username" auto-complete="new-password" placeholder="请输入用户名">
               <icon slot="prefix" name="mobile-alt"></icon>
             </el-input>
           </el-form-item>
-          <el-form-item prop="userPwd">
-            <el-input v-model="regInfo.userPwd" type="password" auto-complete="new-password" placeholder="请输入密码">
+          <el-form-item prop="phone">
+            <el-input v-model="regInfo.phone" auto-complete="new-password" placeholder="请输入手机号">
+              <icon slot="prefix" name="mobile-alt"></icon>
+            </el-input>
+          </el-form-item>
+          <el-form-item prop="password">
+            <el-input v-model="regInfo.password" type="password" auto-complete="new-password" placeholder="请输入密码">
               <icon slot="prefix" name="lock"></icon>
             </el-input>
           </el-form-item>
-          <el-form-item prop="userInvite">
-            <el-input v-model="regInfo.userInvite" auto-complete="new-password" placeholder="请输入邀请码">
+          <el-form-item prop="invite">
+            <el-input v-model="regInfo.invite" auto-complete="new-password" placeholder="请输入邀请码">
               <icon slot="prefix" name="gift"></icon>
             </el-input>
           </el-form-item>
@@ -46,7 +51,7 @@
 import MuHeader from '../components/Header'
 import MuFooter from '../components/Footer'
 import API from '../common/api'
-import qs from 'qs'
+// import qs from 'qs'
 export default {
   name: 'Reg',
   components: {
@@ -59,23 +64,24 @@ export default {
   data () {
     return {
       regInfo: {
-        userPhone: '',
-        userPwd: '',
-        userInvite: '',
+        username: '',
+        phone: '',
+        password: '',
+        invite: '',
         imgCode: '',
         msgCode: ''
       },
       checkCode: '',
       second: 0,
       rules: {
-        userPhone: [
+        phone: [
           { required: true, message: '请输入手机号', trigger: 'change' },
           { pattern: /^1\d{10}$/, message: '请输入正确的手机号', trigger: 'change' }
         ],
-        userPwd: [
+        password: [
           { required: true, message: '请输入密码', trigger: 'change' }
         ],
-        userInvite: [
+        invite: [
           { required: true, message: '请输入邀请码', trigger: 'change' }
         ],
         imgCode: [
@@ -99,14 +105,19 @@ export default {
     postReg () {
       this.$refs.regForm.validate((valid) => {
         if (!valid) return false
-        alert('注册成功！')
+        this.$http.post(API.join, this.regInfo).then((data) => {
+          alert(data)
+        })
       })
     },
     // 发送短信验证码
     async sendMsg () {
-      let postData = qs.stringify({
-        mobile: this.regInfo.userPhone
-      })
+      // let postData = qs.stringify({
+      //   mobile: this.regInfo.phone
+      // })
+      let postData = {
+        mobile: this.regInfo.phone
+      }
       if (this.second !== 0) return false
       let valid = await this.checkAll()
       if (valid) {
@@ -134,11 +145,12 @@ export default {
     },
     // 短信验证
     checkMsgCode (rule, val, cb) {
-      let url = API.checkMsgCode + '?mobile=' + this.regInfo.userPhone + '&veriCode=' + this.regInfo.msgCode
-      this.$http.get(url).then(({ data }) => {
-        if (!data) return cb(new Error('请输入正确的短信验证码'))
-        cb()
-      })
+      cb()
+      // let url = API.checkMsgCode + '?mobile=' + this.regInfo.phone + '&veriCode=' + this.regInfo.msgCode
+      // this.$http.get(url).then(({ data }) => {
+      //   if (!data) return cb(new Error('请输入正确的短信验证码'))
+      //   cb()
+      // })
     },
     // 全局验证
     async checkAll () {

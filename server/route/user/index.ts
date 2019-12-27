@@ -1,9 +1,14 @@
 import * as router from 'koa-joi-router'
+import * as passport from 'koa-passport'
 import User from '../../controllers/User'
 const Joi = router.Joi
 const route = router()
 // 访问路由：ip:port/user/
 route.get('/', async (ctx) => {
+  ctx.body = 'user/index.ts'
+})
+// 访问路由：ip:port/user/info
+route.get('/info', passport.authenticate('jwt', { session: false }), async (ctx) => {
   ctx.body = 'user/index.ts'
 })
 // 访问路由：ip:port/user/find

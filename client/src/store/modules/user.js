@@ -25,6 +25,10 @@ const actions = {
     let user = await Axios.post(API.login, postData)
     commit('LOGIN', user)
   },
+  async join ({ commit }, postData) {
+    let user = await Axios.post(API.join, postData)
+    commit('JOIN', user)
+  },
   async userInfo ({ commit }) {
     let user = await Axios.post(API.userInfo)
     commit('USER_INFO', user)
@@ -34,6 +38,10 @@ const actions = {
 // mutations: 同步并且操作数据的方法
 const mutations = {
   LOGIN (state, user) {
+    state.user = user
+    localStorage.setItem('token', user.token)
+  },
+  JOIN (state, user) {
     state.user = user
     localStorage.setItem('token', user.token)
   },

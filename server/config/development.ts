@@ -15,8 +15,9 @@ let development = {
     }
   },
   auth: {
+    ignorePath: ['/', '/auth'],
     jwt: {
-      secret: 'localhost',
+      secretOrKey: 'localhost',
       expiresIn: '2h',
       issuer: 'localhost',
       audience: 'localhost'
