@@ -16,7 +16,7 @@ export default {
   // 登录
   login: baseUrl + 'auth/login',
   // 获取用户信息
-  userInfo: baseUrl + 'user/userInfo',
+  userInfo: baseUrl + 'user/info',
   // 注册
   join: baseUrl + 'auth/join'
 }

@@ -7,7 +7,7 @@ const permission = async (ctx: Context, next: Next): Promise<any> => {
   const { ignorePath } = config.auth
   const check = ignorePath.some(i => ctx.path.includes(i))
   if (check) {
-    next()
+    await next()
   } else {
     passport.authenticate('jwt', { session: false })(ctx, next)
   }
