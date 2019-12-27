@@ -8,6 +8,16 @@ class User {
   id: number
 
   @Column({
+    comment: '用户名'
+  })
+  username: string
+
+  @Column({
+    comment: '密码'
+  })
+  password: string
+
+  @Column({
     comment: '姓名'
   })
   name: string

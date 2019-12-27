@@ -56,8 +56,8 @@ export default {
     // 登陆
     postLogin () {
       let postData = {
-        userName: this.loginInfo.userPhone,
-        userPwd: this.loginInfo.userPwd
+        username: this.loginInfo.userPhone,
+        password: this.loginInfo.userPwd
       }
       this.login(postData).then(() => {
         this.$router.push({

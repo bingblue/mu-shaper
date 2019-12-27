@@ -1,6 +1,6 @@
 import { getCustomRepository } from 'typeorm'
 import { ContextBody, Context } from '../common/@types'
-import UserRepository from '../services/UserRepository'
+import UserRepository from '../services/User'
 
 class User {
   static async find (ctx: Context): Promise<void> {

@@ -1,18 +1,23 @@
 // import * as http2 from 'http2'
 import * as Koa from 'koa'
 import * as error from 'koa-onerror'
-import 'reflect-metadata'
+import * as cors from 'koa2-cors'
 import config from './config'
 import route from './route'
-import { logger } from './common/middleware'
+import { logger, passport } from './common/middleware'
 import { mysql } from './common/db'
+import 'reflect-metadata'
 const app = new Koa()
 
 // 错误处理
 error(app)
 
+// 跨域
+app.use(cors())
+
 // 日志中间件
 app.use(logger)
+app.use(passport.initialize())
 
 // 加载路由
 app.use(route)
