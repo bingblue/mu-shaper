@@ -47,6 +47,7 @@
 - [X] axios
 - [X] pm2
 - [X] jest
+- [X] client - vue模板
 - [X] koa-passport
 - [X] passport-jwt
 - [ ] docker
@@ -74,7 +75,6 @@
 - [ ] 删除所有无关文件
 
 ## Mu-Shaper v0.3 TODO List
-- [ ] client - vue模板
 - [ ] 权限RBAC
 - [ ] oss-aliyun
 - [ ] 邮件/短信
