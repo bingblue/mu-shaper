@@ -76,17 +76,20 @@
 
 ## Mu-Shaper v0.3 TODO List
 - [ ] 权限RBAC
+- [ ] 微信功能
+- [ ] client - uni-app模板
+
+## Mu-Shaper v0.4 TODO List
 - [ ] oss-aliyun
 - [ ] 邮件/短信
 - [ ] 支付系统-alipay
 
-## Mu-Shaper v0.4 TODO List
-- [ ] 微信功能
+## Mu-Shaper v0.5 TODO List
 - [ ] 聊天系统 websocket
 - [ ] 博客系统
   - [ ] markdown编辑器
 
-## Mu-Shaper v0.5 TODO List
+## Mu-Shaper v0.6 TODO List
 - [ ] 自动生成代码
 - [ ] 微系统
   - [ ] 微服务
@@ -102,7 +105,7 @@
 - [ ] GraphQL prisma 2.0
 - [ ] 实现上面功能
 
-## Mu-Shaper v0.6 TODO List
+## Mu-Shaper v0.7 TODO List
 - [ ] vue3.0 重构client模板
 
 ## Usage
