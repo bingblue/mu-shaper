@@ -5,13 +5,13 @@
       <el-main class="login">
         <h1>用户登录</h1>
         <el-form :model="loginInfo" label-position="top" class="login-form">
-          <el-form-item prop="userPhone">
-            <el-input v-model="loginInfo.userPhone" auto-complete="new-password" placeholder="请输入手机号">
+          <el-form-item prop="username">
+            <el-input v-model="loginInfo.username" auto-complete="new-password" placeholder="请输入用户名">
               <iconfont slot="prefix" icon="search"></iconfont>
             </el-input>
           </el-form-item>
-          <el-form-item prop="userPwd">
-            <el-input v-model="loginInfo.userPwd" type="password" auto-complete="new-password" placeholder="请输入密码">
+          <el-form-item prop="password">
+            <el-input v-model="loginInfo.password" type="password" auto-complete="new-password" placeholder="请输入密码">
               <iconfont slot="prefix" icon="menu-pro"></iconfont>
             </el-input>
           </el-form-item>
@@ -38,8 +38,8 @@ export default {
   data () {
     return {
       loginInfo: {
-        userPhone: '',
-        userPwd: ''
+        username: '',
+        password: ''
       }
     }
   },
@@ -56,14 +56,14 @@ export default {
     // 登陆
     postLogin () {
       let postData = {
-        username: this.loginInfo.userPhone,
-        password: this.loginInfo.userPwd
+        username: this.loginInfo.username,
+        password: this.loginInfo.password
       }
       this.login(postData).then(() => {
         this.$router.push({
           name: 'index',
           params: {
-            nickName: this.nickName
+            name: this.name
           }
         })
       })

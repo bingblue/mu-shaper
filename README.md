@@ -47,13 +47,13 @@
 - [X] axios
 - [X] pm2
 - [X] jest
-- [ ] koa-passport
-- [ ] passport-jwt
+- [X] koa-passport
+- [X] passport-jwt
+- [ ] docker
+- [ ] github actions
 - [ ] 自动生成API文档
   - [ ] koa-joi-router-docs
   - [ ] koa-joi-router-to-swagger-json
-- [ ] docker
-- [ ] github actions
 
 ## Mu-Shaper v0.2 TODO List
 - [ ] 日志增强
@@ -69,6 +69,7 @@
 - [ ] koa-helmet
 - [ ] 限流中间件
 - [ ] gzip
+- [ ] koa2-cors
 - [ ] 其他安全类中间件
 - [ ] 删除所有无关文件
 

@@ -5,7 +5,7 @@ import { util } from '../common/util'
 
 class Auth {
   static async login (ctx: Context, next: Next): Promise<any> {
-    ctx.body = ctx.request.body
+    // ctx.body = ctx.request.body
     return passport.authenticate('local', { session: false }, (err, user) => {
       const code = user ? 200 : 401
       const msg = err || (user ? '登录成功！' : '用户名或密码错误！')

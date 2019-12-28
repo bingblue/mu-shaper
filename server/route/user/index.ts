@@ -12,7 +12,11 @@ route.get('/info', passport.authenticate('jwt', { session: false }), async (ctx)
   ctx.body = 'user/index.ts'
 })
 route.post('/info', async (ctx) => {
-  ctx.body = 'user/index.ts [post]'
+  ctx.body = {
+    code: 200,
+    body: ctx.req['user'],
+    message: 'user/index.ts [post]'
+  }
 })
 // 访问路由：ip:port/user/find
 route.route({

@@ -4,19 +4,14 @@ import API from '../../common/api'
 // 初始化数据
 const state = {
   user: {
-    nickName: '游客',
+    name: '游客',
     token: ''
   }
 }
 
 // getters
 const getters = {
-  user: state => state.user,
-  nickName: state => state.user.nickName,
-
-  userRegDate: (state, getters, rootState) => {
-    return new Date(state.user.userRegDate).toLocaleTimeString()
-  }
+  user: state => state.user
 }
 
 // actions: 异步方法
@@ -50,7 +45,7 @@ const mutations = {
   },
   LOGOUT () {
     state.user = {
-      nickName: '游客',
+      name: '游客',
       token: ''
     }
     localStorage.clear()

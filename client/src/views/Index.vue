@@ -3,12 +3,12 @@
     <mu-header></mu-header>
     <el-container>
       <el-main class="index">
-        <h1>{{ nickName }},{{ msg }}</h1>
+        <h1>{{ user.name }},{{ msg }}</h1>
         <el-table :data="[user]">
-          <el-table-column prop="userName" label="用户名"></el-table-column>
-          <el-table-column prop="age" label="年龄"></el-table-column>
-          <el-table-column prop="nickName" label="昵称"></el-table-column>
-          <el-table-column prop="vip" label="等级"></el-table-column>
+          <el-table-column prop="id" label="id"></el-table-column>
+          <el-table-column prop="username" label="用户名"></el-table-column>
+          <el-table-column prop="phone" label="电话"></el-table-column>
+          <el-table-column prop="address" label="地址"></el-table-column>
         </el-table>
       </el-main>
     </el-container>
@@ -34,8 +34,7 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'user',
-      'nickName'
+      'user'
     ])
   }
 }

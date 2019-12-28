@@ -294,6 +294,89 @@ createConnection({
 }).catch(error => console.log(error))
 ```
 
+## 使用passport
+[koa-passport][13]：`nodeJs`的身份验证中间件,支持用户名密码、github、google等你所有能想到的登录方式。[官网][14]
+
+[passport-local][15]：`passport`的普通登录策略。
+
+[passport-jwt][16]：`passport`的`jwt`验证策略。
+
+[jsonwebtoken][17]：`jwt`生成。
+```cmd
+// 安装
+npm i koa-passport passport-local passport-jwt jsonwebtoken -S
+```
+
+新建`possport.ts`，添加策略：
+```ts
+import * as JWT from 'jsonwebtoken'
+import * as passport from 'koa-passport'
+import { Strategy as LocalStrategy } from 'passport-local'
+import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
+
+// 创建JWT
+function createJWT(id: string): string {
+  const { secretOrKey, ...opts } = config.auth.jwt
+  return JWT.sign({ id }, secretOrKey, opts)
+}
+
+// 普通登录策略
+passport.use(new LocalStrategy(async (username, password, done) => {
+  // 登录逻辑
+  const user = await User.find(username)
+  user.token = createJWT(user.id)
+  return done(null, user)
+}))
+
+// jwt策略
+let jwtOpt = {
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme(),
+  secretOrKey: 'secret'
+}
+passport.use(new JwtStrategy(jwtOpt, async (jwt_payload, done) => {
+  const user = await User.find(jwt_payload.id)
+  return done(null, user || false)
+}))
+
+export { passport }
+```
+
+然后修改路由`route/auth/index.ts`：
+```ts
+// ... 引入略
+route.route({
+  method: 'post',
+  path: '/login',
+  validate: {
+    type: 'json',
+    body: {
+      username: Joi.string().required(),
+      password: Joi.string().required()
+    }
+  },
+  handler: async (ctx, next) => {
+    return passport.authenticate('local', { session: false }, (err, user) => {
+      ctx.body = user
+    })(ctx, next)
+  }
+})
+
+route.get('/info', passport.authenticate('jwt', { session: false }), async (ctx) => {
+  // 登录成功后的用户信息在 ctx.req.user
+  ctx.body = ctx.req.user
+})
+```
+
+在`app.ts`中增加:
+```ts
+// ...引入略
+import { passport } from './common/middleware/passport'
+// 让passport把解析好的用户信息放入 ctx.req.user
+app.use(passport.initialize())
+```
+
+运行后就能看到效果了~
+
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
 ```cmd
@@ -319,6 +402,11 @@ pm2 start server/app.ts --watch
 [10]:https://github.com/typeorm/typeorm
 [11]:https://github.com/rbuckton/reflect-metadata
 [12]:https://github.com/sidorares/node-mysql2
+[13]:https://github.com/rkusa/koa-passport
+[14]:http://www.passportjs.org/
+[15]:https://github.com/jaredhanson/passport-local
+[16]:https://github.com/mikenicholson/passport-jwt
+[17]:https://github.com/auth0/node-jsonwebtoken
 ```
 
 [1]:https://koajs.com/
@@ -333,3 +421,8 @@ pm2 start server/app.ts --watch
 [10]:https://github.com/typeorm/typeorm
 [11]:https://github.com/rbuckton/reflect-metadata
 [12]:https://github.com/sidorares/node-mysql2
+[13]:https://github.com/rkusa/koa-passport
+[14]:http://www.passportjs.org/
+[15]:https://github.com/jaredhanson/passport-local
+[16]:https://github.com/mikenicholson/passport-jwt
+[17]:https://github.com/auth0/node-jsonwebtoken

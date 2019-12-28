@@ -4,13 +4,32 @@ sidebarDepth: 0
 ---
 # 任务任务
 
+## 2019-12-29
+#### 任务
+- [ ] docker
+- [ ] github actions
+
+::: tip 
+:loudspeaker: 我还是喜欢研究CI自动化。
+:::
+
+## 2019-12-28
+#### 任务
+- [X] ~~koa-passport~~
+- [X] ~~passport-local~~
+- [X] ~~passport-jwt~~
+
+::: tip 完成
+:loudspeaker: 终于完成了，头发又少了些许。
+:::
+
 ## 2019-12-26
 #### 任务
 - [ ] koa-passport
 - [ ] passport-jwt
 
-::: tip 完成
-:loudspeaker: 
+::: danger 未完成
+:slightly_frowning_face: 我太南了，文件引入错误搞了半天，我被自己的智商所折服。
 :::
 
 ## 2019-12-25
