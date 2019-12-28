@@ -1,11 +1,15 @@
 import * as passport from 'koa-passport'
+import * as minimatch  from 'minimatch'
 import { Context, Next } from '../@types'
 import config from '../../config'
 
 const permission = async (ctx: Context, next: Next): Promise<any> => {
   // isAuthenticated
   const { ignorePath } = config.auth
-  const check = ignorePath.some(i => ctx.path.includes(i))
+  const check = ignorePath.some(i => {
+    // ctx.path.includes(i)
+    return minimatch(ctx.path, i)
+  })
   if (check) {
     await next()
   } else {
