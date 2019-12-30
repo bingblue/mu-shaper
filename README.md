@@ -70,9 +70,10 @@
 - [ ] koa-helmet
 - [ ] 限流中间件
 - [ ] gzip
-- [ ] koa2-cors
+- [X] koa2-cors
 - [ ] 其他安全类中间件
 - [ ] 删除所有无关文件
+- [ ] 代码添加注释和jsdoc说明
 
 ## Mu-Shaper v0.3 TODO List
 - [ ] 权限RBAC
@@ -85,27 +86,29 @@
 - [ ] 支付系统-alipay
 
 ## Mu-Shaper v0.5 TODO List
+- [ ] 微系统
+  - [ ] 微服务
+  - [ ] 微前端
+- [ ] 可自定义功能
+
+## Mu-Shaper v0.6 TODO List
 - [ ] 聊天系统 websocket
 - [ ] 博客系统
   - [ ] markdown编辑器
 
-## Mu-Shaper v0.6 TODO List
+## Mu-Shaper v0.7 TODO List
 - [ ] 自动生成代码
-- [ ] 微系统
-  - [ ] 微服务
-  - [ ] 微前端
 - [ ] 爬虫
   - [ ] puppeteer
   - [ ] 定时任务
     - [ ] node-schedule
     - [ ] rabbitmq消息队列
-- [ ] 可自定义功能
 
 ## Mu-Shaper GraphQL分支版本 TODO List
 - [ ] GraphQL prisma 2.0
 - [ ] 实现上面功能
 
-## Mu-Shaper v0.7 TODO List
+## Mu-Shaper v0.8 TODO List
 - [ ] vue3.0 重构client模板
 
 ## Usage
