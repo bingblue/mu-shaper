@@ -1,7 +1,7 @@
 <template>
   <el-container>
     <el-footer>
-      <p>Copyright © 2018 · {{ projectName }} , Inc. All Rights Reserved</p>
+      <p>Copyright © {{ nowYear }} · {{ projectName }} , Inc. All Rights Reserved</p>
     </el-footer>
   </el-container>
 </template>
@@ -11,7 +11,8 @@ export default {
   name: 'Footer',
   data () {
     return {
-      projectName: 'VUE'
+      projectName: 'mu-shaper',
+      nowYear: new Date().getFullYear()
     }
   }
 }
