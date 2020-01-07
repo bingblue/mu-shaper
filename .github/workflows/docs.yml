@@ -1,0 +1,35 @@
+name: Ali OSS
+# 触发事件：push
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: 部署到阿里云对象存储
+    runs-on: ubuntu-latest
+    steps:
+    - name: 更新代码
+      uses: actions/checkout@master
+
+    - name: 安装Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: "12.x"
+
+    - name: 构建HTML
+      run: |
+        npm i
+        npm run docs:build
+    
+    - name: 连接OSS
+      uses: manyuanrong/setup-ossutil@v1.0
+      with:
+        # 地域节点，在控制台查看
+        endpoint: oss-cn-shanghai.aliyuncs.com
+        # 刚刚创建的id和secret
+        access-key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+        access-key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+    
+    - name: 发布到OSS
+      run: ossutil cp -rf docs/.vuepress/dist/ oss://mu-shaper/

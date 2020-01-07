@@ -1,6 +1,6 @@
 {
   "name": "mu-shaper",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "Node.js开发脚手架，快速开发，一站式开发，轻量级，更简洁的Node模块化模板",
   "author": "XiaoMuCOOL",
   "private": false,
@@ -10,6 +10,7 @@
     "bulid": "ts-node ./test/decorator.spec.ts",
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
     "test": "jest --coverage --preset ts-jest ./test/"
   },
   "dependencies": {

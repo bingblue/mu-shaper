@@ -39,12 +39,16 @@ module.exports = {
             text: '指南',
             link: '/guide/'
           },
+          // {
+          //   text: 'API 参考',
+          //   link: '/reference/api'
+          // },
           {
-            text: 'API 参考',
-            link: '/reference/api'
+            text: '计划任务',
+            link: '/reference/plan'
           },
           {
-            text: '任务计划',
+            text: '线路图',
             link: '/reference/roadmap'
           }
         ],
@@ -80,10 +84,10 @@ module.exports = {
             text: 'Guide',
             link: '/guide/'
           },
-          {
-            text: 'API Reference',
-            link: '/api/'
-          },
+          // {
+          //   text: 'API Reference',
+          //   link: '/api/'
+          // },
           {
             text: 'Release Notes',
             link: 'https://github.com/bingblue/mu-shaper/releases'
