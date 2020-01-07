@@ -57,7 +57,7 @@ typings/
 # dotenv environment variables file
 .env
 
-dist/**
+dist
 .vscode/
 package-lock.json
 yarn-lock.json
