@@ -50,8 +50,8 @@
 - [X] client - vue模板
 - [X] koa-passport
 - [X] passport-jwt
-- [ ] docker
-- [ ] github actions
+- [X] docker
+- [X] github actions
 - [ ] 自动生成API文档
   - [ ] koa-joi-router-docs
   - [ ] koa-joi-router-to-swagger-json

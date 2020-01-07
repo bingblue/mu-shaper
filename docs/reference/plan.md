@@ -2,6 +2,7 @@
 sidebar: auto
 sidebarDepth: 0
 ---
+
 # 计划任务
 
 ::: danger 图标说明
@@ -9,6 +10,16 @@ sidebarDepth: 0
 :::
 
 ## 2020-01-07
+#### 任务
+- :bulb: 自动生成API文档
+  - :bulb: koa-joi-router-docs
+  - :bulb: koa-joi-router-to-swagger-json
+
+::: tip 说明 
+:loudspeaker: 
+:::
+
+## 2020-01-06
 #### 任务
 - :heavy_multiplication_x: docker
 - :heavy_check_mark: github actions
