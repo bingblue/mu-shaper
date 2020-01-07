@@ -4,13 +4,20 @@ const Joi = router.Joi
 const route = router()
 // 普通登录：ip:port/auth/login
 route.route({
+  meta: {
+    swagger: {
+      summary: '登录',
+      description: `用户名密码登录`,
+      tags: ['auth']
+    }
+  },
   method: 'post',
   path: '/login',
   validate: {
     type: 'json',
     body: {
-      username: Joi.string().required(),
-      password: Joi.string().required()
+      username: Joi.string().required().description('用户名'),
+      password: Joi.string().required().description('密码')
     }
   },
   handler: Auth.login

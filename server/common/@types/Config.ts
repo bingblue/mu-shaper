@@ -7,6 +7,8 @@ export interface Config {
     cert: any
     /** ssl证书.key路径 */
     key: any
+    /** 生成API文档 */
+    swagger: boolean
   }
   /** 数据库配置 */
   db: {

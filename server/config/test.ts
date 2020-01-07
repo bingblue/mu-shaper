@@ -2,7 +2,8 @@ const test = {
   website: {
     port: 3001,
     cert: './secret/mu-shaper.pem',
-    key: './secret/mu-shaper.key'
+    key: './secret/mu-shaper.key',
+    swagger: true
   },
   db: {
     mysql: {

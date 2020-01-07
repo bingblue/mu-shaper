@@ -52,9 +52,9 @@
 - [X] passport-jwt
 - [X] docker
 - [X] github actions
-- [ ] 自动生成API文档
-  - [ ] koa-joi-router-docs
-  - [ ] koa-joi-router-to-swagger-json
+- [X] 自动生成API文档
+  - [X] koa-joi-router-docs
+  - [ ] ~~koa-joi-router-to-swagger-json~~（冒牌货）
 
 ## Mu-Shaper v0.2 TODO List
 - [ ] 日志增强
@@ -79,6 +79,7 @@
 - [ ] 权限RBAC
 - [ ] 微信功能
 - [ ] client - uni-app模板
+- [ ] puppeteer自动发动文章到不同平台
 
 ## Mu-Shaper v0.4 TODO List
 - [ ] oss-aliyun

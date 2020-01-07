@@ -4,9 +4,10 @@ import * as error from 'koa-onerror'
 import * as cors from 'koa2-cors'
 import config from './config'
 import route from './route'
-import { logger, passport, permission } from './common/middleware'
+import { logger, passport, permission, swagger } from './common/middleware'
 import { mysql } from './common/db'
 import 'reflect-metadata'
+import koaSwagger from 'koa2-swagger-ui'
 const app = new Koa()
 
 // 错误处理
@@ -25,8 +26,17 @@ app.use(permission)
 // 加载路由
 app.use(route)
 
+// swagger文档
+// app.use(swagger)
+app.use(koaSwagger({
+  routePrefix: '/swagger',
+  swaggerOptions: {
+    url: 'http://petstore.swagger.io/v2/swagger.json'
+  }
+}))
+
 // 启动数据库
-mysql()
+// mysql()
 
 // 启动服务
 app.listen(config.website.port)
