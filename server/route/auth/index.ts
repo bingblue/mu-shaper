@@ -1,4 +1,4 @@
-import * as router from 'koa-joi-router'
+import router from 'koa-joi-router'
 import Auth from '../../controllers/Auth'
 const Joi = router.Joi
 const route = router()

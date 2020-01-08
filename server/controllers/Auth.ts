@@ -1,4 +1,4 @@
-import * as passport from 'koa-passport'
+import passport from 'koa-passport'
 import UserController from './User'
 import { ContextBody, Context, Next } from '../common/@types'
 import { util } from '../common/util'
@@ -13,7 +13,7 @@ class Auth {
     })(ctx, next)
   }
   static async logout (ctx: Context): Promise<void> {
-    
+    ctx.body = '登出成功！'
   }
   static async join (ctx: Context, next: Next): Promise<void> {
     return UserController.save(ctx)

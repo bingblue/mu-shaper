@@ -1,5 +1,5 @@
-import * as JWT from 'jsonwebtoken'
-import * as passport from 'koa-passport'
+import JWT from 'jsonwebtoken'
+import passport from 'koa-passport'
 import { getCustomRepository } from 'typeorm'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'

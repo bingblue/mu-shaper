@@ -1,5 +1,5 @@
-import * as router from 'koa-joi-router'
-import * as passport from 'koa-passport'
+import router from 'koa-joi-router'
+import passport from 'koa-passport'
 import User from '../../controllers/User'
 const Joi = router.Joi
 const route = router()

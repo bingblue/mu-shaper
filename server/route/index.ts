@@ -1,10 +1,8 @@
-import * as glob from 'glob'
-import * as router from 'koa-joi-router'
+import glob from 'glob'
+import router from 'koa-joi-router'
 import { SwaggerAPI } from 'koa-joi-router-docs'
 import config from '../config'
-
 const route = router()
-const generator = new SwaggerAPI()
 // 访问路由：ip:port/
 route.get('/', async (ctx) => {
   ctx.body = 'index.ts'
@@ -13,18 +11,23 @@ route.get('/', async (ctx) => {
 /**
  * 加载路由，读取当前目录下所有[文件夹名/文件名(除index)]作为prefix
  * @author 小牧COOL <xiaomucool@bingblue.com>
- * @updateAt 2019-12-18
+ * @updateAt 2019-01-08
  **/
-glob.sync('**/*.ts', { cwd: __dirname }).forEach(async file => {
-  const routes = (await import('./' + file)).default
-  generator.addJoiRouter(routes)
+glob.sync('**/*.ts', { cwd: __dirname }).forEach(file => {
+  // const routes = (await import('./' + file)).default
+  const routes = require('./' + file).default
   const prefixPath = '/' + file.replace(/\.[^.]*$/, '').replace('/index', '')
   if (prefixPath === '/index') return
-  routes.prefix(prefixPath)
-  route.use(routes.middleware())
+  /** 此处写法总觉得不规范，有更好的方法请联系我 */
+  // routes.prefix(prefixPath)
+  routes.routes.forEach(item => {
+    item.path = prefixPath + item.path
+  })
+  route.route(routes.routes)
 })
 
 if(config.website.swagger) {
+  const generator = new SwaggerAPI()
   generator.addJoiRouter(route)
   const spec = generator.generateSpec({
     info: {
@@ -47,7 +50,7 @@ if(config.website.swagger) {
   route.get('/doc/swagger.json', async ctx => {
     ctx.body = JSON.stringify(spec, null, '  ')
   })
-  route.get('/doc/redoc', async ctx => {
+  route.get('/doc', async ctx => {
     ctx.body = `
     <!DOCTYPE html>
     <html>

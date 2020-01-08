@@ -1,5 +1,5 @@
-import * as passport from 'koa-passport'
-import * as minimatch  from 'minimatch'
+import passport from 'koa-passport'
+import minimatch  from 'minimatch'
 import { Context, Next } from '../@types'
 import config from '../../config'
 

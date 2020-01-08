@@ -1,13 +1,13 @@
-// import * as http2 from 'http2'
-import * as Koa from 'koa'
-import * as error from 'koa-onerror'
-import * as cors from 'koa2-cors'
+// import http2 from 'http2'
+import Koa from 'koa'
+import error from 'koa-onerror'
+import cors from 'koa2-cors'
 import config from './config'
 import route from './route'
 import { logger, passport, permission, swagger } from './common/middleware'
 import { mysql } from './common/db'
 import 'reflect-metadata'
-import koaSwagger from 'koa2-swagger-ui'
+
 const app = new Koa()
 
 // 错误处理
@@ -27,13 +27,7 @@ app.use(permission)
 app.use(route)
 
 // swagger文档
-// app.use(swagger)
-app.use(koaSwagger({
-  routePrefix: '/swagger',
-  swaggerOptions: {
-    url: 'http://petstore.swagger.io/v2/swagger.json'
-  }
-}))
+app.use(swagger)
 
 // 启动数据库
 // mysql()

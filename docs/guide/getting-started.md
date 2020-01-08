@@ -16,9 +16,34 @@ npm i koa -S
 npm i typescript ts-node -D
 ```
 
+配置`tsconfig.json`文件：
+```json{9}
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2017",
+    "moduleResolution": "node",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "preserveConstEnums": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "importHelpers": true,
+    "rootDir": "./",
+    "outDir": "./dist",
+    "lib": ["es6", "dom", "es7"]
+  },
+  "exclude": ["node_modules", "public"],
+  "files": ["./server/app.ts"]
+}
+```
+
 新建app.ts在server目录下：
 ```ts
-import * as Koa from 'koa'
+import Koa from 'koa'
 const app = new Koa()
 app.use(async ctx => {
   ctx.body = 'Hello World'
@@ -41,8 +66,8 @@ app.listen(3000)
 ## 使用http2
 
 ```ts
-import * as http2 from 'http2'
-import * as Koa from 'koa'
+import http2 from 'http2'
+import Koa from 'koa'
 const app = new Koa()
 // 启动服务
 const server = http2.createSecureServer({
@@ -161,8 +186,8 @@ npm i koa-joi-router -S
 
 例子：
 ```ts {18}
-import * as Koa from 'koa'
-import * as router from 'koa-joi-router'
+import Koa from 'koa'
+import router from 'koa-joi-router'
 const Joi = router.Joi
 const admin = router()
 // 基础请求
@@ -309,8 +334,8 @@ npm i koa-passport passport-local passport-jwt jsonwebtoken -S
 
 新建`possport.ts`，添加策略：
 ```ts
-import * as JWT from 'jsonwebtoken'
-import * as passport from 'koa-passport'
+import JWT from 'jsonwebtoken'
+import passport from 'koa-passport'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 

@@ -1,4 +1,4 @@
-import * as router from 'koa-joi-router'
+import router from 'koa-joi-router'
 const Joi = router.Joi
 const routers = router()
 // 访问路由：ip:port/demo/

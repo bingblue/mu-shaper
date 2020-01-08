@@ -10,7 +10,7 @@ const swagger = async (ctx: Context, next: Next): Promise<any> => {
       // oauthOptions: {},               // passed to initOAuth
       swaggerOptions: {               // passed to SwaggerUi()
         // dom_id: 'swagger-ui-container',
-        url: 'http://petstore.swagger.io/v2/swagger.json', // link to swagger.json
+        url: '/doc/swagger.json', // link to swagger.json
         // supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
         // docExpansion: 'none',
         // jsonEditor: false,

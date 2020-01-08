@@ -1,5 +1,5 @@
 
-import * as minimatch  from 'minimatch'
+import minimatch  from 'minimatch'
 let a1 = minimatch('/', '/')//true
 let a2 = minimatch('/', '/auth/**')// false
 let a3 = minimatch('/auth', '/')// false

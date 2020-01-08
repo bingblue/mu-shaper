@@ -1,5 +1,5 @@
-import * as fs from 'fs'
-import * as path from 'path'
+import fs from 'fs'
+import path from 'path'
 import { Config } from '../common/@types'
 import development from './development'
 import production from './production'

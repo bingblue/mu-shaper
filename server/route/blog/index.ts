@@ -1,4 +1,4 @@
-import * as router from 'koa-joi-router'
+import router from 'koa-joi-router'
 const route = router()
 // 访问路由：ip:port/blog/
 route.get('/', async (ctx) => {
