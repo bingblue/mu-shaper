@@ -67,12 +67,13 @@
 - [ ] ipv6
 - [ ] redis
 - [ ] koa-session-redis3
-- [ ] koa-server-push 
-- [ ] koa-helmet
-- [ ] 限流中间件
-- [ ] gzip
-- [X] koa2-cors
-- [ ] 其他安全类中间件
+- [ ] 安全类中间件
+  - [ ] koa-server-push 
+  - [ ] koa-helmet
+  - [ ] 限流中间件
+  - [ ] gzip
+  - [X] koa2-cors
+  - [ ] 其他
 - [ ] 删除所有无关文件
 - [ ] 代码添加注释和jsdoc说明
 

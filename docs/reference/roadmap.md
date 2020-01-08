@@ -28,8 +28,9 @@ sidebarDepth: 0
 - [X] passport-jwt
 - [X] docker
 - [X] github actions
-- [ ] 自动生成API文档
+- [X] 自动生成API文档
   - [X] koa-joi-router-docs
+  - [X] koa2-swagger-ui
   - [ ] ~~koa-joi-router-to-swagger-json~~（冒牌货）
 
 ## Mu-Shaper v0.2 TODO List
@@ -42,12 +43,13 @@ sidebarDepth: 0
 - [ ] ipv6
 - [ ] redis
 - [ ] koa-session-redis3
-- [ ] koa-server-push 
-- [ ] koa-helmet
-- [ ] 限流中间件
-- [ ] gzip
-- [X] koa2-cors
-- [ ] 其他安全类中间件
+- [ ] 安全类中间件
+  - [ ] koa-server-push 
+  - [ ] koa-helmet
+  - [ ] 限流中间件
+  - [ ] gzip
+  - [X] koa2-cors
+  - [ ] 其他
 - [ ] 删除所有无关文件
 - [ ] 代码添加注释和jsdoc说明
 
@@ -55,6 +57,7 @@ sidebarDepth: 0
 - [ ] 权限RBAC
 - [ ] 微信功能
 - [ ] client - uni-app模板
+- [ ] puppeteer自动发动文章到不同平台
 
 ## Mu-Shaper v0.4 TODO List
 - [ ] oss-aliyun
