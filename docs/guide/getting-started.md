@@ -239,6 +239,125 @@ app.listen(3000)
 
 **`Tips`：`GET`请求一定不要设置`validate.type`，血和泪的教训。**
 
+## 使用koa-joi-router-docs
+[koa-joi-router-docs][18]：配合`koa-joi-router`可生成Swagger 2.0 JSON定义。
+
+[koa2-swagger-ui][19]：根据`swagger.json`生成Swagger UI页面。
+```cmd
+// 安装
+npm i koa-joi-router-docs koa2-swagger-ui -D
+```
+
+修改`route/index.ts`：
+```ts
+import router from 'koa-joi-router'
+import { SwaggerAPI } from 'koa-joi-router-docs'
+const route = router()
+const { Joi } = Router
+
+route.get('/user/:_id', {
+  meta: {
+    swagger: {
+      summary: '用户信息',
+      description: `描述`,
+      tags: ['user']
+    }
+  },
+  validate: {
+    params: {
+      _id: Joi.string().alphanum().max(24).example('abcdefg').description('用户ID').required()
+    },
+    output: {
+      '200-299': {
+        body: Joi.object({
+          userId: Joi.string().description('用户ID')
+        }).options({
+          allowUnknown: true
+        }).description('User')
+      },
+      500: {
+        body: Joi.object({
+          message: Joi.string().description('错误信息')
+        }).description('error')
+      }
+    }
+  },
+  handler: async ctx => {
+    ctx.body = {
+      userId: ctx.params._id
+    }
+  }
+})
+// 创建SwaggerAPI实例
+const generator = new SwaggerAPI()
+// 从路由器的.routes属性中提取路由定义
+generator.addJoiRouter(router)
+// Swagger规范的全局描述
+const spec = generator.generateSpec({
+  info: {
+    title: 'Mu-shaper API',
+    description: '描述。',
+    version: '0.0.1'
+  },
+  basePath: '/',
+  tags: [{
+    name: 'user',
+    description: `用户模块`
+  }],
+}, { 
+  // 自定义默认响应
+  defaultResponses: {
+    200: {
+      description: 'OK'
+    },
+    500: {
+      description: 'ERROR'
+    }
+  }
+})
+
+// 生成Swagger JSON定义
+router.get('/doc/swagger.json', async ctx => {
+  ctx.body = JSON.stringify(spec, null, '  ')
+})
+
+// 生成reDoc接口文档
+router.get('/doc', async ctx => {
+  ctx.body = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Example API</title>
+  </head>
+  <body>
+    <redoc spec-url='/doc/swagger.json' lazy-rendering></redoc>
+    <script src="https://rebilly.github.io/ReDoc/releases/latest/redoc.min.js"></script>
+  </body>
+  </html>
+  `
+})
+
+export default route.middleware()
+```
+
+在`app.ts`里引用下，访问`localhost:port/doc`就能看到`reDoc`风格的接口文档了，但是我们想要`Swagger UI`风格的文档：
+```ts
+// app.ts 
+import koaSwagger from 'koa2-swagger-ui'
+app.use(koaSwagger({
+  title: 'API 文档',
+  swaggerOptions: {
+    url: '/doc/swagger.json'
+  },
+  routePrefix: '/doc/swagger',
+}))
+```
+
+访问`localhost:port/doc/swagger`就能看到`Swagger UI`风格的接口文档了，完美！
+
 ## 使用jest
 [jest][9]：Facebook旗下的测试框架。
 ```cmd
@@ -432,12 +551,14 @@ pm2 start server/app.ts --watch
 [15]:https://github.com/jaredhanson/passport-local
 [16]:https://github.com/mikenicholson/passport-jwt
 [17]:https://github.com/auth0/node-jsonwebtoken
+[18]:https://github.com/chuyik/koa-joi-router-docs
+[19]:https://github.com/scttcper/koa2-swagger-ui
 ```
 
 [1]:https://koajs.com/
 [2]:http://www.typescriptlang.org/docs/home.html
 [3]:https://github.com/TypeStrong/ts-node
-[4]:https://www.helplib.com/GitHub/article_116239
+[4]:https://github.com/koajs/joi-router
 [5]:https://pm2.keymetrics.io/docs/usage/quick-start/
 [6]:https://github.com/remy/nodemon#nodemon
 [7]:https://standardjs.com/readme-zhcn.html
@@ -451,3 +572,5 @@ pm2 start server/app.ts --watch
 [15]:https://github.com/jaredhanson/passport-local
 [16]:https://github.com/mikenicholson/passport-jwt
 [17]:https://github.com/auth0/node-jsonwebtoken
+[18]:https://github.com/chuyik/koa-joi-router-docs
+[19]:https://github.com/scttcper/koa2-swagger-ui

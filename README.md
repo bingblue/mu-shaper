@@ -54,6 +54,7 @@
 - [X] github actions
 - [X] 自动生成API文档
   - [X] koa-joi-router-docs
+  - [X] koa2-swagger-ui
   - [ ] ~~koa-joi-router-to-swagger-json~~（冒牌货）
 
 ## Mu-Shaper v0.2 TODO List
