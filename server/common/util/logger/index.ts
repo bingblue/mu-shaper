@@ -16,7 +16,7 @@ const jsonFormat = printf(info => {
   }
   return JSON.stringify(log)
 })
-const logger = createLogger({
+let logger: any = createLogger({
   format: combine(
     label({
       label: 'mu-shaper'
@@ -61,4 +61,13 @@ const logger = createLogger({
     })
   ]
 })
+
+logger.onerror = (err, module: string = 'global', message: string = err.message) => {
+  logger.error(message, {
+    module: module,
+    name: err.name,
+    status: err.status,
+    stack: err.stack
+  })
+}
 export { logger }

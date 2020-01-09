@@ -14,7 +14,7 @@ route.get('/info', passport.authenticate('jwt', { session: false }), async (ctx)
 route.post('/info', async (ctx) => {
   ctx.body = {
     code: 200,
-    body: ctx.req.user,
+    body: ctx.req['user'],
     message: 'user/index.ts [post]'
   }
 })

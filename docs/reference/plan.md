@@ -9,12 +9,20 @@ sidebarDepth: 0
 :bulb:（计划）、:bicyclist:（持续中）、:heavy_check_mark:（已完成）、:heavy_multiplication_x:（未完成）
 :::
 
-## 2020-01-09
+## 2020-01-10
 #### 任务
-- :bulb: 日志增强
+- :bulb: 安全类中间件
 
 ::: tip 说明 
 :loudspeaker: 
+:::
+
+## 2020-01-09
+#### 任务
+- :heavy_check_mark: 日志增强
+
+::: tip 完成 
+:loudspeaker: 一鼓作气，通宵打代码，终于完成了日志增强，但是启动错误没有捕获，在`app.ts`里加`try...catch`有点丑陋。
 :::
 
 ## 2020-01-08

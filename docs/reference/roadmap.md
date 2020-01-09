@@ -34,12 +34,12 @@ sidebarDepth: 0
   - [ ] ~~koa-joi-router-to-swagger-json~~（冒牌货）
 
 ## Mu-Shaper v0.2 TODO List
-- [ ] 日志增强
-  - [ ] 记录运行错误
-  - [ ] 记录http请求和返回内容
-  - [ ] 类上增加log注解
-  - [ ] 配合typeorm日志
-  - [ ] 全局对象process获取当前文件夹可行否？
+- [X] 日志增强
+  - [X] 记录运行错误
+  - [X] 记录http请求和返回内容
+  - [ ] ~~类上增加log注解~~ 无需，koa-error能捕捉到错误
+  - [X] 配合typeorm日志
+  - [X] 全局对象process获取当前文件夹可行否？'__filename'
 - [X] ipv6
 - [ ] redis
 - [ ] koa-session-redis3

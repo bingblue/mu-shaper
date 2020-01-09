@@ -14,16 +14,19 @@ const app = new Koa()
 // 错误处理
 error(app, {
   all: function (err, ctx) {
-    ctx.set('Content-Type', 'text/plain')
+    ctx.set('Content-Type', 'text/plain;charset=utf-8')
     ctx.body = err.message
-    log.error(err)
+    log.onerror(err, 'koa-onerror')
   }
 })
 
 // 日志中间件
 app.use(logger)
 // 跨域
-app.use(cors())
+app.use(cors({
+  // Access-Control-Max-Age，减少复杂请求的预检请求[OPTIONS请求]
+  maxAge: 864000
+}))
 
 // 解析用户信息放入 ctx.req.user
 app.use(passport.initialize())
@@ -37,10 +40,12 @@ app.use(route)
 app.use(swagger)
 
 // 启动数据库
-// mysql()
+mysql()
 
 // 启动服务
-app.listen(config.website.port)
+app.listen(config.website.port, () => {
+  log.info(`服务已启动，请监听https://localhost:${config.website.port} 网址。`)
+})
 
 // http2 启动服务
 // const { port, cert, key } = config.website
@@ -49,5 +54,5 @@ app.listen(config.website.port)
 //   key: key
 // }, app.callback())
 // server.listen(port, () => {
-//   console.log(`服务已启动，请监听https://localhost:${port} 端口。`)
+//   console.log(`服务已启动，请监听https://localhost:${port} 网址。`)
 // })

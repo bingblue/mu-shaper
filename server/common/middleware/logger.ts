@@ -6,6 +6,10 @@ const logger = async (ctx: Context, next: Next): Promise<void> => {
   await next()
   const ms = Date.now() - start
   const level = ctx.status !== 200 ? 'error' : ctx.body.code !== 200 ? 'info' : 'debug'
-  log.log(level, `${ctx.method} ${ctx.url} - ${ms}ms`, { status: ctx.status, stack: ctx.body })
+  log.log(level, `${ctx.method} ${ctx.url} - ${ms}ms`, {
+    module: 'middleware',
+    status: ctx.status,
+    stack: ctx.body
+  })
 }
 export { logger }

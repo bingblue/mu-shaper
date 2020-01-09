@@ -4,6 +4,7 @@ import { getCustomRepository } from 'typeorm'
 import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import config from '../../config'
+import { logger } from '../util'
 import UserService from '../../services/User'
 
 function createJWT (id: string): string {
@@ -24,11 +25,16 @@ function createJWT (id: string): string {
 
 // 普通登录
 passport.use(new LocalStrategy(async (username, password, done) => {
-  const userRepository = getCustomRepository(UserService)
-  const user = await userRepository.findByAuthentication(username, password)
-  if (!user) return done(null, false)
-  user.token = createJWT(user.id)
-  return done(null, user)
+  try {
+    const userRepository = getCustomRepository(UserService)
+    const user = await userRepository.findByAuthentication(username, password)
+    if (!user) return done(null, false)
+    user.token = createJWT(user.id)
+    return done(null, user)
+  } catch (err) {
+    logger.onerror(err, 'middleware')
+    return done(err.message)
+  }
 }))
 
 // JWT认证

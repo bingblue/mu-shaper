@@ -1,6 +1,6 @@
 let hostname = window.location.hostname
 // 默认本地环境
-let baseUrl = 'http://localhost:3001/'
+let baseUrl = 'http://localhost:3002/'
 // 开发环境
 if (hostname === '106.14.2.143') baseUrl = 'http://106.14.2.143:18090/e3-webapp/'
 // 仿真环境

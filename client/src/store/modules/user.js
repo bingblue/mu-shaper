@@ -25,7 +25,8 @@ const actions = {
     commit('JOIN', user)
   },
   async userInfo ({ commit }) {
-    let user = await Axios.post(API.userInfo)
+    let user = await Axios.get('http://localhost:3002/user/find?name=xiaomu')
+    // let user = await Axios.post(API.userInfo)
     commit('USER_INFO', user)
   }
 }
