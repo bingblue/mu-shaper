@@ -7,7 +7,7 @@ route.route({
   meta: {
     swagger: {
       summary: '登录',
-      description: `用户名密码登录`,
+      description: '用户名密码登录',
       tags: ['auth']
     }
   },

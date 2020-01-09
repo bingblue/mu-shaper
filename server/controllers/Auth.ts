@@ -12,17 +12,21 @@ class Auth {
       ctx.body = util.getBody(user, msg, code)
     })(ctx, next)
   }
+
   static async logout (ctx: Context): Promise<void> {
     ctx.body = '登出成功！'
   }
+
   static async join (ctx: Context, next: Next): Promise<void> {
     return UserController.save(ctx)
   }
+
   static async github (ctx: Context): Promise<void> {
-    
+
   }
+
   static async githubcb (ctx: Context): Promise<void> {
-    
+
   }
 }
 export default Auth

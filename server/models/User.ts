@@ -63,7 +63,7 @@ class User {
   _v: string
 
   @AfterLoad()
-  timeHelper() {
+  timeHelper (): void {
     this._v = `版本号为：${this._v}`
   }
 }

@@ -4,7 +4,7 @@ const util = {
   md5 (password: string): string {
     return createHash('md5').update(password + '').digest('hex')
   },
-  getBody (body: any = {}, msg: string = 'success', code: number = 200): ContextBody {
+  getBody (body: any = {}, msg = 'success', code = 200): ContextBody {
     const result = {
       code: code,
       message: msg,

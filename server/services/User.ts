@@ -10,9 +10,10 @@ class User extends Repository<UserModel> {
       .where('user.name = :name', { name })
       .getMany()
   }
+
   /** 用户注册 */
   saveUser (user: any): object {
-    let newUser = new UserModel()
+    const newUser = new UserModel()
     newUser.name = user.name
     newUser.address = user.address
     newUser.username = user.username
@@ -20,13 +21,15 @@ class User extends Repository<UserModel> {
     newUser.password = util.md5(user.password)
     return this.save(newUser)
   }
+
   /** 用户更新 */
   async updateUser (user: any): Promise<object> {
-    let newUser = await this.findOne(user.id)
+    const newUser = await this.findOne(user.id)
     newUser.name = user.name
     newUser.address = user.address
     return this.save(newUser)
   }
+
   /** 判断用户名密码是否正确 */
   findByAuthentication (username: string, password: string): any {
     return this.createQueryBuilder('user')

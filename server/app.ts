@@ -13,11 +13,10 @@ const app = new Koa()
 
 // 错误处理
 error(app, {
-  all: function(err, ctx) {
-    ctx.res._headers = {}
-    ctx.set(err.headers)
+  all: function (err, ctx) {
+    ctx.set('Content-Type', 'text/plain')
+    ctx.body = err.message
     log.error(err)
-    ctx.body = "{errot:'错误'}"
   }
 })
 

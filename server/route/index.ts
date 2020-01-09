@@ -5,6 +5,7 @@ import config from '../config'
 const route = router()
 // 访问路由：ip:port/
 route.get('/', async (ctx) => {
+  throw new Error('抛出异常！')
   ctx.body = 'index.ts'
 })
 
@@ -26,7 +27,7 @@ glob.sync('**/*.ts', { cwd: __dirname }).forEach(file => {
   route.route(routes.routes)
 })
 
-if(config.website.swagger) {
+if (config.website.swagger) {
   const generator = new SwaggerAPI()
   generator.addJoiRouter(route)
   const spec = generator.generateSpec({
@@ -38,14 +39,14 @@ if(config.website.swagger) {
     basePath: '/',
     tags: [{
       name: 'auth',
-      description: `权限模块接口。`
-    },{
+      description: '权限模块接口。'
+    }, {
       name: 'blog',
-      description: `博客模块接口。`
-    },{
+      description: '博客模块接口。'
+    }, {
       name: 'user',
-      description: `用户模块接口。`
-    }],
+      description: '用户模块接口。'
+    }]
   })
   route.get('/doc/swagger.json', async ctx => {
     ctx.body = JSON.stringify(spec, null, '  ')
