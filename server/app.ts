@@ -5,19 +5,27 @@ import cors from 'koa2-cors'
 import config from './config'
 import route from './route'
 import { logger, passport, permission, swagger } from './common/middleware'
+import { logger as log } from './common/util'
 import { mysql } from './common/db'
 import 'reflect-metadata'
 
 const app = new Koa()
 
 // 错误处理
-error(app)
-
-// 跨域
-app.use(cors())
+error(app, {
+  all: function(err, ctx) {
+    ctx.res._headers = {}
+    ctx.set(err.headers)
+    log.error(err)
+    ctx.body = "{errot:'错误'}"
+  }
+})
 
 // 日志中间件
 app.use(logger)
+// 跨域
+app.use(cors())
+
 // 解析用户信息放入 ctx.req.user
 app.use(passport.initialize())
 // JWT验证中间件
