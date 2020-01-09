@@ -81,6 +81,45 @@ server.listen(3000, () => {
 
 访问`https://localhost:3000`就能看到了~`cert`和`key`需要自己申请下`SSL证书`。
 
+## 使用IPV6
+
+```ts
+import http from 'http'
+import Koa from 'koa'
+const app = new Koa()
+app.use(async ctx => {
+  ctx.body = 'Hello World'
+})
+const server = http.createServer(app.callback())
+server.listen(3001, '::', () => {
+  console.log('服务已启动~')
+})
+
+```
+
+访问`http://[::1]:3001/`就能看到`Hello World`了~`IPV6`程序里支持很简单，主要是整个链路的支持，包括硬件，服务商等,缺一不可。
+
+### IPV6格式说明
+
+**前导零压缩法：** 将每一段的前导零省略，但是每一段都至少应该有一个数字。
+```cmd
+// 原地址
+2000:0000:0000:0000:0001:2345:6789:abcd
+// 压缩地址
+2000:0:0:0:1:2345:6789:abcd
+```
+
+**双冒号法：** 如果几个连续的段值都是0，那么这些0可以简记为::。每个地址中只能有一个::。
+```cmd
+// 原地址
+2000:0000:0000:0000:0001:2345:6789:abcd
+// 压缩地址
+2000::1:2345:6789:abcd
+```
+
+**回环地址：** `::1`，相当于IPv4的回环地址`127.0.0.1`。
+
+
 ## 使用nodemon
 
 [nodemon][6]：热加载插件，修改文件自动重启。
