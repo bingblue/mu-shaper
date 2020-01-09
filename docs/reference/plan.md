@@ -9,14 +9,23 @@ sidebarDepth: 0
 :bulb:（计划）、:bicyclist:（持续中）、:heavy_check_mark:（已完成）、:heavy_multiplication_x:（未完成）
 :::
 
-## 2020-01-07
+## 2020-01-08
 #### 任务
-- :bulb: 自动生成API文档
-  - :bulb: koa-joi-router-docs
-  - :bulb: koa-joi-router-to-swagger-json
+- :bulb: ipv6
 
 ::: tip 说明 
 :loudspeaker: 
+:::
+
+## 2020-01-07
+#### 任务
+- :bulb: 自动生成API文档
+  - :heavy_check_mark: koa-joi-router-docs
+  - :heavy_check_mark: koa2-swagger-ui
+  - :heavy_multiplication_x: ~~koa-joi-router-to-swagger-json~~（冒牌货）
+
+::: tip 完成 
+:loudspeaker: koa-joi-router的多路由合并还是没研究透彻~
 :::
 
 ## 2020-01-06
@@ -33,7 +42,7 @@ sidebarDepth: 0
 - :bicyclist: docker
 - :bicyclist: github actions
 
-::: danger 
+::: danger 未完成
 :loudspeaker: 我还是喜欢研究CI自动化。
 :::
 
