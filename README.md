@@ -64,7 +64,7 @@
   - [ ] 类上增加log注解
   - [ ] 配合typeorm日志
   - [ ] 全局对象process获取当前文件夹可行否？
-- [ ] ipv6
+- [X] ipv6
 - [ ] redis
 - [ ] koa-session-redis3
 - [ ] 安全类中间件

@@ -9,12 +9,20 @@ sidebarDepth: 0
 :bulb:（计划）、:bicyclist:（持续中）、:heavy_check_mark:（已完成）、:heavy_multiplication_x:（未完成）
 :::
 
-## 2020-01-08
+## 2020-01-09
 #### 任务
-- :bulb: ipv6
+- :bulb: 日志增强
 
 ::: tip 说明 
 :loudspeaker: 
+:::
+
+## 2020-01-08
+#### 任务
+- :heavy_check_mark::bicyclist: ipv6
+
+::: tip 说明 
+:loudspeaker: 代码层面的支持很简单，已经完成了，主要是整个链路的支持，太难了。
 :::
 
 ## 2020-01-07
