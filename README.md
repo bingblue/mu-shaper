@@ -66,14 +66,14 @@
   - [X] 全局对象process获取当前文件夹可行否？'__filename'
 - [X] ipv6
 - [ ] redis
-- [ ] koa-session-redis3
-- [ ] 安全类中间件
-  - [ ] koa-server-push 
-  - [ ] koa-helmet
-  - [ ] 限流中间件
-  - [ ] gzip
+- [ ] ~~koa-session-redis3~~（不需要session）
+- [X] 安全类中间件
+  - [ ] ~~koa-server-push~~（http2 push api服务用不到）
+  - [X] koa-helmet（设置安全性http头）
+  - [X] koa-ratelimit（限流中间件）
+  - [X] koa-compress（gzip）
   - [X] koa2-cors
-  - [ ] 其他
+  - [ ] ~~其他(CSRF，XSS，HSTS)~~
 - [ ] 删除所有无关文件
 - [ ] 代码添加注释和jsdoc说明
 

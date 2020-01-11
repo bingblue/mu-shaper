@@ -397,34 +397,6 @@ app.use(koaSwagger({
 
 访问`localhost:port/doc/swagger`就能看到`Swagger UI`风格的接口文档了，完美！
 
-## 使用jest
-[jest][9]：Facebook旗下的测试框架。
-```cmd
-// 安装jest
-npm i jest -D
-// 配合typescript使用，需要用到ts-jest
-npm i ts-jest -D
-```
-
-然后修改下`package.json`：
-```json{5}
-"scripts": {
-  "start": "npm run dev",
-  "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
-  "lint": "standardx --fix **/*.ts",
-  "test": "jest --coverage --preset ts-jest"
-}
-```
-
-新建`sum.spec.ts`
-```ts
-test('测试加法', () => {
-  expect(1+1).toBe(2)
-})
-```
-
-最后运行`npm run test`，就能看到测试报告了，`jest`默认测试`**.spec.ts`、`**.test.ts`或`__tests__`文件下的文件。
-
 ## 使用typeorm
 [typeorm][10]：最佳ORM框架，支持 MySQL、Postgres、SQLite、SQL Server、Oracle、MongoDB等。
 
@@ -560,6 +532,86 @@ app.use(passport.initialize())
 
 运行后就能看到效果了~
 
+## 提升网站安全性
+参考[Web Application Security Testing Cheat Sheet][21]，主要用到以下插件：
+[koa-helmet][20]：设置一些安全性相关的HTTP头。
+[koa2-cors][22]：解决跨域问题和减少复杂请求的预检请求`OPTIONS请求`。
+[koa-compress][23]：Gzip压缩。
+[koa-ratelimit][24]：限制用户的连接频率来防止暴力破解。
+```cmd
+// 安装
+npm i koa-helmet koa2-cors koa-compress -S
+```
+
+在`app.ts`里增加：
+```ts
+// 其他略
+import cors from 'koa2-cors'
+import helmet from 'koa-helmet'
+import compress from 'koa-compress'
+import ratelimit from 'koa-ratelimit'
+
+// 跨域
+app.use(cors({
+  // Access-Control-Max-Age，减少复杂请求的预检请求[OPTIONS请求]
+  maxAge: 864000 // 10天
+}))
+// 设置http头
+app.use(helmet())
+// gzip压缩
+app.use(compress())
+// 限流
+app.use(ratelimit({
+  driver: 'redis',
+  db: new Redis(), // 需要引入redis
+  duration: 60000, // 限制时间，毫秒
+  errorMessage: '您尝试次数过多',
+  id: (ctx) => ctx.ip,
+  headers: {
+    remaining: 'Rate-Limit-Remaining',
+    reset: 'Rate-Limit-Reset',
+    total: 'Rate-Limit-Total'
+  },
+  max: 10,         // 限制时间里最多访问次数
+  disableHeader: false,
+  whitelist: (ctx) => {
+    // 白名单，返回true/false
+  },
+  blacklist: (ctx) => {
+    // 黑名单，返回true/false
+  }
+}))
+
+```
+
+## 使用jest
+[jest][9]：Facebook旗下的测试框架。
+```cmd
+// 安装jest
+npm i jest -D
+// 配合typescript使用，需要用到ts-jest
+npm i ts-jest -D
+```
+
+然后修改下`package.json`：
+```json{5}
+"scripts": {
+  "start": "npm run dev",
+  "dev": "nodemon -e ts --exec ts-node ./server/app.ts",
+  "lint": "standardx --fix **/*.ts",
+  "test": "jest --coverage --preset ts-jest"
+}
+```
+
+新建`sum.spec.ts`
+```ts
+test('测试加法', () => {
+  expect(1+1).toBe(2)
+})
+```
+
+最后运行`npm run test`，就能看到测试报告了，`jest`默认测试`**.spec.ts`、`**.test.ts`或`__tests__`文件下的文件。
+
 ## 使用pm2
 [pm2][5]：生产环境自动重启的插件，很强大。
 ```cmd
@@ -592,6 +644,11 @@ pm2 start server/app.ts --watch
 [17]:https://github.com/auth0/node-jsonwebtoken
 [18]:https://github.com/chuyik/koa-joi-router-docs
 [19]:https://github.com/scttcper/koa2-swagger-ui
+[20]:https://github.com/venables/koa-helmet
+[21]:https://segmentfault.com/a/1190000003860400
+[22]:https://github.com/zadzbw/koa2-cors
+[23]:https://github.com/koajs/compress
+[24]:https://github.com/koajs/ratelimit
 ```
 
 [1]:https://koajs.com/
@@ -613,3 +670,8 @@ pm2 start server/app.ts --watch
 [17]:https://github.com/auth0/node-jsonwebtoken
 [18]:https://github.com/chuyik/koa-joi-router-docs
 [19]:https://github.com/scttcper/koa2-swagger-ui
+[20]:https://github.com/venables/koa-helmet
+[21]:https://segmentfault.com/a/1190000003860400
+[22]:https://github.com/zadzbw/koa2-cors
+[23]:https://github.com/koajs/compress
+[24]:https://github.com/koajs/ratelimit

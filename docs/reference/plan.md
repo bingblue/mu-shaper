@@ -9,12 +9,20 @@ sidebarDepth: 0
 :bulb:（计划）、:bicyclist:（持续中）、:heavy_check_mark:（已完成）、:heavy_multiplication_x:（未完成）
 :::
 
-## 2020-01-10
+## 2020-01-12
 #### 任务
-- :bulb: 安全类中间件
+- :bulb: redis
 
-::: tip 说明 
+::: tip 完成 
 :loudspeaker: 
+:::
+
+## 2020-01-10 ~ 11
+#### 任务
+- :heavy_check_mark: 安全类中间件
+
+::: tip 完成 
+:loudspeaker: 安全性中间件都添加了，明天规划下单独提取到一个中间件试试。
 :::
 
 ## 2020-01-09
