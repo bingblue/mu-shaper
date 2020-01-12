@@ -5,7 +5,7 @@ import config from '../config'
 const route = router()
 // 访问路由：ip:port/
 route.get('/', async (ctx) => {
-  throw new Error('抛出异常！')
+  // throw new Error('抛出异常！')
   ctx.body = 'index.ts'
 })
 

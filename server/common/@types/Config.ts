@@ -20,6 +20,12 @@ export interface Config {
       password: string;
       database: string;
     };
+    /** redis数据库配置 */
+    redis: {
+      host: string;
+      port: number;
+      password: string;
+    };
   };
   /** 鉴权配置 */
   auth: {
@@ -36,5 +42,14 @@ export interface Config {
       /** 接收方网址 */
       audience?: string;
     };
+    /** 限流配置 */
+    ratelimit: {
+      /** 限制时间，毫秒 */
+      duration: number;
+      /** 限制时间里最多访问次数 */
+      max: number;
+      /** 错误消息 */
+      errorMessage: string;
+    }
   };
 }

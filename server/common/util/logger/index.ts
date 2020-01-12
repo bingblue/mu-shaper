@@ -70,4 +70,6 @@ logger.onerror = (err, module: string = 'global', message: string = err.message)
     stack: err.stack
   })
 }
+
+// 监听process.on('uncaughtexception', func) 来捕获启动错误！
 export { logger }

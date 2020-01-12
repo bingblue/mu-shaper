@@ -78,8 +78,8 @@
 - [ ] 代码添加注释和jsdoc说明
 
 ## Mu-Shaper v0.3 TODO List
-- [ ] 权限RBAC
 - [ ] 微信功能
+- [ ] 权限RBAC
 - [ ] client - uni-app模板
 - [ ] puppeteer自动发动文章到不同平台
 

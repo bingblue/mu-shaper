@@ -12,6 +12,11 @@ const test = {
       username: 'test',
       password: 'test',
       database: 'mu_shaper'
+    },
+    redis: {
+      host: 'test',
+      port: 6379,
+      password: 'test'
     }
   },
   auth: {
@@ -19,8 +24,13 @@ const test = {
     jwt: {
       secretOrKey: 'test',
       expiresIn: '1h',
-      issuer: 'www.xx.com',
-      audience: 'www.xx.com'
+      issuer: 'www.test.com',
+      audience: 'www.test.com'
+    },
+    ratelimit: {
+      duration: 60000,
+      max: 10,
+      errorMessage: '您请求次数过多，请稍后尝试！'
     }
   }
 }
