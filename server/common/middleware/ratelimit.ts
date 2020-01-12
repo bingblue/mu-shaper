@@ -3,6 +3,11 @@ import { Context, Next } from '../@types'
 import { redis } from '../db'
 import config from '../../config'
 
+/**
+ * 限制用户的连接频率来防止暴力破解
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 const ratelimit = async (ctx: Context, next: Next): Promise<any> => {
   return koaRatelimit({
     driver: 'redis',
@@ -15,9 +20,6 @@ const ratelimit = async (ctx: Context, next: Next): Promise<any> => {
     },
     disableHeader: false,
     ...config.auth.ratelimit
-    // errorMessage: '您请求次数过多',
-    // duration: 60000,                                  // 限制时间，毫秒
-    // max: 10,                                          // 限制时间里最多访问次数
     /** 白名单，返回true/false */
     // whitelist: (ctx: Context): boolean => {},
     /** 黑名单，返回true/false */

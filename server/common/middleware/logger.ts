@@ -1,6 +1,11 @@
 import { Context, Next } from '../@types'
 import { logger as log } from '../util'
 
+/**
+ * 记录HTTP请求日志
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 const logger = async (ctx: Context, next: Next): Promise<void> => {
   const start = Date.now()
   await next()

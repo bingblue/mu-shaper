@@ -1,5 +1,10 @@
 import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, VersionColumn, AfterLoad } from 'typeorm'
 
+/**
+ * User表
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 @Entity()
 class User {
   @PrimaryGeneratedColumn({

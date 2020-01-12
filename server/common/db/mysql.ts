@@ -1,8 +1,12 @@
 import { createConnection } from 'typeorm'
 import config from '../../config'
-import SqlLogger from './SqlLogger'
-import { logger } from '../util'
+import { logger, MysqlLogger } from '../util'
 const { database } = config.db.mysql
+/**
+ * 创建Mysql连接
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 const mysql = async (): Promise<void> => {
   logger.debug(`正在尝试连接[${database}]数据库...`)
   try {
@@ -11,7 +15,7 @@ const mysql = async (): Promise<void> => {
       logging: true,
       synchronize: true,
       entities: ['server/models/*.ts'], // __dirname + '/server/models/*.{ts,js}'
-      logger: process.env.NODE_ENV === 'development'? 'advanced-console' : new SqlLogger(),
+      logger: process.env.NODE_ENV === 'development'? 'advanced-console' : new MysqlLogger(),
       ...config.db.mysql
     })
     logger.info(`连接[${database}]数据库成功！`, {

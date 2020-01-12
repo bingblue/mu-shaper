@@ -7,6 +7,11 @@ import config from '../../config'
 import { logger } from '../util'
 import UserService from '../../services/User'
 
+/**
+ * 创建JWT
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 function createJWT (id: string): string {
   const { secretOrKey, ...opts } = config.auth.jwt
   return JWT.sign({ id }, secretOrKey, opts)
@@ -23,7 +28,11 @@ function createJWT (id: string): string {
 //   done(null, user)
 // })
 
-// 普通登录
+/**
+ * 普通登录
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 passport.use(new LocalStrategy(async (username, password, done) => {
   try {
     const userRepository = getCustomRepository(UserService)
@@ -37,7 +46,11 @@ passport.use(new LocalStrategy(async (username, password, done) => {
   }
 }))
 
-// JWT认证
+/**
+ * JWT验证
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 const jwtOpt = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
   ...config.auth.jwt
@@ -48,7 +61,11 @@ passport.use(new JwtStrategy(jwtOpt, async (payload, done) => {
   return done(null, user || false)
 }))
 
-// github登录
+/**
+ * Github 登录
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
 // const GitHubStrategy = require('passport-github2').Strategy
 // passport.use(new GitHubStrategy({
 //   clientID: Config.github.clientID,

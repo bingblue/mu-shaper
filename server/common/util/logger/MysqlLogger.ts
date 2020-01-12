@@ -1,36 +1,41 @@
 import { Logger, QueryRunner } from 'typeorm'
-import { logger } from '../util'
+import { logger } from '..'
 
-export default class SqlLogger implements Logger {
+/**
+ * 重写Typeorm日志
+ * @author 小牧COOL <xiaomucool@bingblue.com>
+ * @updateAt 2019-01-12
+ **/
+export class MysqlLogger implements Logger {
   logQuery(query: string, parameters?: any[], queryRunner?: QueryRunner) {
     const requestUrl = queryRunner?.data?.request ? `(${queryRunner.data.request.url}) ` : ''
     logger.info(`${requestUrl} 查询语句: ${query}`, {
-      // parameters: parameters,
-      // queryRunner: queryRunner
+      module: 'db'
     })
   }
   logQueryError(error: string, query: string, parameters?: any[], queryRunner?: QueryRunner) {
-    throw new Error('Method not implemented.')
+    logger.error(`数据库错误: ${error}`, {
+      module: 'db'
+    })
   }
   logQuerySlow(time: number, query: string, parameters?: any[], queryRunner?: QueryRunner) {
     logger.error(`数据库日志查询时间: ${time},查询语句: ${query}`, {
-      // parameters: parameters,
-      // queryRunner: queryRunner
+      module: 'db'
     })
   }
   logSchemaBuild(message: string, queryRunner?: QueryRunner) {
     logger.warn(`数据库信息: ${message}`, {
-      // queryRunner: queryRunner
+      module: 'db'
     })
   }
   logMigration(message: string, queryRunner?: QueryRunner) {
     logger.warn(`数据库信息: ${message}`, {
-      // queryRunner: queryRunner
+      module: 'db'
     })
   }
   log(level: 'log' | 'info' | 'warn', message: any, queryRunner?: QueryRunner) {
     logger.log(level, `数据库信息: ${message}`, {
-      // queryRunner: queryRunner
+      module: 'db'
     })
   }
 }

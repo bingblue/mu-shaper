@@ -3,9 +3,9 @@ import router from 'koa-joi-router'
 import { SwaggerAPI } from 'koa-joi-router-docs'
 import config from '../config'
 const route = router()
+
 // 访问路由：ip:port/
 route.get('/', async (ctx) => {
-  // throw new Error('抛出异常！')
   ctx.body = 'index.ts'
 })
 
