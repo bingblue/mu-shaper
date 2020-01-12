@@ -11,10 +11,10 @@ sidebarDepth: 0
 
 ## 2020-01-12
 #### 任务
-- :bulb: redis
+- :heavy_check_mark: redis
 
 ::: tip 完成 
-:loudspeaker: 
+:loudspeaker: Redis使用起来真是方便啊！
 :::
 
 ## 2020-01-10 ~ 11

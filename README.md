@@ -65,7 +65,7 @@
   - [X] 配合typeorm日志
   - [X] 全局对象process获取当前文件夹可行否？'__filename'
 - [X] ipv6
-- [ ] redis
+- [X] redis
 - [ ] ~~koa-session-redis3~~（不需要session）
 - [X] 安全类中间件
   - [ ] ~~koa-server-push~~（http2 push api服务用不到）
@@ -74,8 +74,8 @@
   - [X] koa-compress（gzip）
   - [X] koa2-cors
   - [ ] ~~其他(CSRF，XSS，HSTS)~~
-- [ ] 删除所有无关文件
-- [ ] 代码添加注释和jsdoc说明
+- [X] 删除所有无关文件
+- [X] 代码添加注释和jsdoc说明
 
 ## Mu-Shaper v0.3 TODO List
 - [ ] 微信功能
