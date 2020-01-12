@@ -1,4 +1,3 @@
-import production from './production'
 let development = {
   website: {
     port: 3000,
@@ -35,7 +34,4 @@ let development = {
     }
   }
 }
-
-// 故意引入production，这个文件不上传
-development = production
 export default development

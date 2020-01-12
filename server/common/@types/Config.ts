@@ -1,4 +1,6 @@
 export interface Config {
+  /** 是否是开发环境 */
+  isDev?: boolean;
   /** 网站信息配置 */
   website: {
     /** 端口号 */

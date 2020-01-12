@@ -13,9 +13,9 @@ const mysql = async (): Promise<void> => {
     await createConnection({
       type: 'mysql',
       logging: true,
-      synchronize: true,
+      synchronize: config.isDev,
       entities: ['server/models/*.ts'], // __dirname + '/server/models/*.{ts,js}'
-      logger: process.env.NODE_ENV === 'development'? 'advanced-console' : new MysqlLogger(),
+      logger: config.isDev ? 'advanced-console' : new MysqlLogger(),
       ...config.db.mysql
     })
     logger.info(`连接[${database}]数据库成功！`, {
