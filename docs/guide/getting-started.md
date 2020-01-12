@@ -532,11 +532,41 @@ app.use(passport.initialize())
 
 运行后就能看到效果了~
 
+## 使用Redis
+[ioredis][25]：`Redis`的`Nodejs`客户端。
+```cmd
+// 安装
+npm i ioredis -S
+```
+
+在redis.ts里面添加代码：
+```ts
+import Redis from 'ioredis'
+// const redis = new Redis() // 默认: 127.0.0.1:6379
+const redis = new Redis({
+  port: 6379,
+  host: "127.0.0.1",
+  password: "password"
+})
+
+redis.set("foo", "bar")
+redis.get("foo").then(function(result) {
+  console.log(result)
+})
+redis.del("foo")
+```
+
+`Redis`使用很简单，性能又好，还有订阅/发布模式，可以查看官方文档。
+
 ## 提升网站安全性
 参考[Web Application Security Testing Cheat Sheet][21]，主要用到以下插件：
+
 [koa-helmet][20]：设置一些安全性相关的HTTP头。
+
 [koa2-cors][22]：解决跨域问题和减少复杂请求的预检请求`OPTIONS请求`。
+
 [koa-compress][23]：Gzip压缩。
+
 [koa-ratelimit][24]：限制用户的连接频率来防止暴力破解。
 ```cmd
 // 安装
@@ -649,6 +679,7 @@ pm2 start server/app.ts --watch
 [22]:https://github.com/zadzbw/koa2-cors
 [23]:https://github.com/koajs/compress
 [24]:https://github.com/koajs/ratelimit
+[25]:https://github.com/luin/ioredis
 ```
 
 [1]:https://koajs.com/
@@ -675,3 +706,4 @@ pm2 start server/app.ts --watch
 [22]:https://github.com/zadzbw/koa2-cors
 [23]:https://github.com/koajs/compress
 [24]:https://github.com/koajs/ratelimit
+[25]:https://github.com/luin/ioredis
