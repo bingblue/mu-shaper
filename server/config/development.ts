@@ -7,16 +7,16 @@ let development = {
   },
   db: {
     mysql: {
-      host: 'localhost',
+      host: '122.51.109.178',
       port: 3306,
-      username: 'localhost',
-      password: 'localhost',
+      username: 'root',
+      password: 'U!5J%X*CKCABPOXX',
       database: 'mu_shaper'
     },
     redis: {
-      host: 'localhost',
+      host: '122.51.109.178',
       port: 6379,
-      password: 'localhost'
+      password: 'Bingblue123'
     }
   },
   auth: {
