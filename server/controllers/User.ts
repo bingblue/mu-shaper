@@ -1,7 +1,7 @@
 import { getCustomRepository } from 'typeorm'
 import { Context } from '../common/@types'
 import { util } from '../common/util'
-import UserRepository from '../services/User'
+import UserRepository from '../services/SysUser'
 
 class User {
   /** 根据名称查找用户 */

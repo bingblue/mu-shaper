@@ -1,5 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
-import TableInfo from './TableInfo'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm'
 
 /**
  * 菜单表
@@ -7,7 +6,7 @@ import TableInfo from './TableInfo'
  * @updateAt 2020-02-01
  **/
 @Entity()
-class SysMenu extends TableInfo{
+class SysMenu {
   @PrimaryGeneratedColumn({
     name: 'menu_id',
     comment: '菜单ID'
@@ -77,5 +76,39 @@ class SysMenu extends TableInfo{
     comment: '菜单图标'
   })
   icon: string
+
+  @Column({
+    name: 'create_by',
+    default: '',
+    comment: '创建者'
+  })
+  createBy: string
+
+  @CreateDateColumn({
+    name: 'create_time',
+    nullable: true,
+    comment: '创建时间'
+  })
+  createTime: Date
+
+  @Column({
+    name: 'update_by',
+    default: '',
+    comment: '更新者'
+  })
+  updateBy: string
+
+  @UpdateDateColumn({
+    name: 'update_time',
+    nullable: true,
+    comment: '更新时间'
+  })
+  updateTime: Date
+
+  @Column({
+    nullable: true,
+    comment: '备注'
+  })
+  remark: string
 }
 export default SysMenu

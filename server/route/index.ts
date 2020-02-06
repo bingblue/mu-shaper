@@ -2,13 +2,82 @@ import glob from 'glob'
 import router from 'koa-joi-router'
 import { SwaggerAPI } from 'koa-joi-router-docs'
 import config from '../config'
+import Auth from '../controllers/Auth'
 const route = router()
+const { Joi } = router
 
 // 访问路由：ip:port/
 route.get('/', async (ctx) => {
-  ctx.body = 'index.ts'
+  ctx.body = '欢迎访问Mu-shaper系统。'
 })
 
+route.route({
+  method: 'get',
+  path: '/captchaImage',
+  meta: {
+    swagger: {
+      summary: '获取验证码图片',
+      description: `获取验证码图片`,
+      tags: ['Common']
+    }
+  },
+  validate: {
+    output: {
+      '200-299': {
+        body: Joi.object({
+          img: Joi.string().description('图片')
+        }).options({
+          allowUnknown: true
+        }).description('Common')
+      },
+      500: {
+        body: Joi.object({
+          message: Joi.string().description('错误信息')
+        }).description('error')
+      }
+    }
+  },
+  handler: Auth.captchaImage
+})
+
+route.route({
+  method: 'post',
+  path: '/login',
+  meta: {
+    swagger: {
+      summary: '登录',
+      description: `登录验证`,
+      tags: ['Common']
+    }
+  },
+  handler: Auth.login
+})
+
+route.route({
+  method: 'get',
+  path: '/getInfo',
+  meta: {
+    swagger: {
+      summary: '获取用户信息',
+      description: `获取用户信息`,
+      tags: ['Common']
+    }
+  },
+  handler: Auth.getInfo
+})
+
+route.route({
+  method: 'get',
+  path: '/getRouters',
+  meta: {
+    swagger: {
+      summary: '获取路由信息',
+      description: `获取路由信息`,
+      tags: ['Common']
+    }
+  },
+  handler: Auth.getRouters
+})
 /**
  * 加载路由，读取当前目录下所有[文件夹名/文件名(除index)]作为prefix
  * @author 小牧COOL <xiaomucool@bingblue.com>

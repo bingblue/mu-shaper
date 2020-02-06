@@ -5,7 +5,7 @@ import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import config from '../../config'
 import { logger } from '../util'
-import UserService from '../../services/User'
+import SysUserService from '../../services/SysUser'
 
 /**
  * 创建JWT
@@ -23,7 +23,7 @@ function createJWT (id: string): string {
 
 // // 反序列化
 // passport.deserializeUser(async (id, done) => {
-//   const userRepository = getCustomRepository(UserService)
+//   const userRepository = getCustomRepository(SysUserService)
 //   const user = await userRepository.findByName('xiaomu')
 //   done(null, user)
 // })
@@ -35,10 +35,10 @@ function createJWT (id: string): string {
  **/
 passport.use(new LocalStrategy(async (username, password, done) => {
   try {
-    const userRepository = getCustomRepository(UserService)
+    const userRepository = getCustomRepository(SysUserService)
     const user = await userRepository.findByAuthentication(username, password)
     if (!user) return done(null, false)
-    user.token = createJWT(user.id)
+    user.token = createJWT(user.userId)
     return done(null, user)
   } catch (err) {
     logger.onerror(err, 'middleware')
@@ -52,12 +52,12 @@ passport.use(new LocalStrategy(async (username, password, done) => {
  * @updateAt 2019-01-12
  **/
 const jwtOpt = {
-  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('JWT'),
+  jwtFromRequest: ExtractJwt.fromAuthHeaderWithScheme('Bearer'),
   ...config.auth.jwt
 }
 passport.use(new JwtStrategy(jwtOpt, async (payload, done) => {
-  const userRepository = getCustomRepository(UserService)
-  const user = await userRepository.findOne(payload.id)
+  const userRepository = getCustomRepository(SysUserService)
+  const user = await userRepository.findByUserId(payload.id)
   return done(null, user || false)
 }))
 
