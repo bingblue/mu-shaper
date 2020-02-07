@@ -1,6 +1,6 @@
 import { createConnection } from 'typeorm'
 import config from '../../config'
-import { logger, MysqlLogger } from '../util'
+import { logger, OrmLogger } from '../util'
 const { database } = config.db.mysql
 /**
  * 创建Mysql连接
@@ -15,7 +15,7 @@ const mysql = async (): Promise<void> => {
       logging: true,
       synchronize: config.isDev,
       entities: ['server/models/*.ts'], // __dirname + '/server/models/*.{ts,js}'
-      logger: config.isDev ? 'advanced-console' : new MysqlLogger(),
+      logger: config.isDev ? 'advanced-console' : new OrmLogger(),
       ...config.db.mysql
     })
     logger.info(`连接[${database}]数据库成功！`, {

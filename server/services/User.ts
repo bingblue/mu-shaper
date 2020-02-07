@@ -18,7 +18,7 @@ class User extends Repository<UserModel> {
     newUser.address = user.address
     newUser.username = user.username
     newUser.phone = user.phone
-    newUser.password = util.md5(user.password)
+    newUser.password = util.encode(user.password)
     return this.save(newUser)
   }
 
@@ -31,11 +31,11 @@ class User extends Repository<UserModel> {
   }
 
   /** 判断用户名密码是否正确 */
-  findByAuthentication (username: string, password: string): any {
-    return this.createQueryBuilder('user')
-      .where('user.username = :username', { username })
-      .andWhere('user.password = :password', { password: util.md5(password) })
-      .getOne()
+  async findByAuthentication (userName: string, password: string): Promise<any> {
+    let user =  await this.createQueryBuilder('user')
+      .where('user.userName = :userName', { userName }).getOne()
+    if (util.matches(password, user.password)) return user
+    return false
   }
 }
 export default User

@@ -6,7 +6,7 @@ import { logger } from '..'
  * @author 小牧COOL <xiaomucool@bingblue.com>
  * @updateAt 2019-01-12
  **/
-export class MysqlLogger implements Logger {
+export class OrmLogger implements Logger {
   logQuery(query: string, parameters?: any[], queryRunner?: QueryRunner) {
     const requestUrl = queryRunner?.data?.request ? `(${queryRunner.data.request.url}) ` : ''
     logger.info(`${requestUrl} 查询语句: ${query}`, {

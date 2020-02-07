@@ -79,7 +79,7 @@ let logger: any = createLogger({
  * @author 小牧COOL <xiaomucool@bingblue.com>
  * @updateAt 2019-01-12
  **/
-logger.onerror = (err, module: string = 'global', message: string = err.message) => {
+logger.onerror = (err, module: string = 'global', message: string = err.message) : void => {
   logger.error(message, {
     module: module,
     name: err.name,
