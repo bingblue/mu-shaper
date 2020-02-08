@@ -5,7 +5,7 @@ import { Strategy as LocalStrategy } from 'passport-local'
 import { Strategy as JwtStrategy, ExtractJwt } from 'passport-jwt'
 import config from '../../config'
 import { logger } from '../util'
-import UserService from '../../services/User'
+import UserService from '../../services/SysUser'
 
 /**
  * 创建JWT

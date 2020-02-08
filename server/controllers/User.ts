@@ -1,7 +1,8 @@
 import { getCustomRepository } from 'typeorm'
 import { Context } from '../common/@types'
 import { util } from '../common/util'
-import UserRepository from '../services/User'
+import UserRepository from '../services/SysUser'
+import RoleRepository from '../services/SysRole'
 
 class User {
   /** 根据名称查找用户 */
@@ -21,7 +22,9 @@ class User {
   /** 更新用户 */
   static async update (ctx: Context): Promise<void> {
     const userRepository = getCustomRepository(UserRepository)
-    const user = await userRepository.updateUser(ctx.request.query)
+    const roleRepository = getCustomRepository(RoleRepository)
+    let roles = await roleRepository.findByIds(ctx.request.query.roleIds)
+    const user = await userRepository.updateUserRole(ctx.request.query.userId, roles)
     ctx.body = util.getBody(user)
   }
 }

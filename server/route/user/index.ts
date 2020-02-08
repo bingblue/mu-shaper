@@ -35,9 +35,8 @@ route.route({
   path: '/update',
   validate: {
     query: {
-      id: Joi.number().required(),
-      name: Joi.string(),
-      address: Joi.string()
+      userId: Joi.number().required(),
+      roleIds: Joi.array().required()
     }
   },
   handler: User.update

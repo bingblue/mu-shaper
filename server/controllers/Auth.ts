@@ -1,6 +1,6 @@
 import passport from 'koa-passport'
 import UserController from './User'
-import { ContextBody, Context, Next } from '../common/@types'
+import { Context, Next } from '../common/@types'
 import { util } from '../common/util'
 
 class Auth {
