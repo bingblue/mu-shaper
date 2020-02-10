@@ -19,6 +19,7 @@ const util = {
    * @return 密码是否一致
    */
   matches (rawPassword: string, encodedPassword: string): boolean {
+    console.log(rawPassword, encodedPassword)
     let salt = encodedPassword.substr(0, 29)
     let newPassword = bcrypt.hashSync(rawPassword, salt)
     return newPassword === encodedPassword
@@ -40,4 +41,5 @@ const util = {
     return result
   }
 }
+
 export { util }

@@ -38,8 +38,9 @@ class SysUser extends Repository<SysUserModel> {
   /** 判断用户名密码是否正确 */
   async findByAuthentication (username: string, password: string): Promise<any> {
     let user =  await this.createQueryBuilder('user')
+      .addSelect('user.password')
       .where('user.username = :username', { username }).getOne()
-    if (util.matches(password, user.password)) return user
+    if (user && util.matches(password, user.password)) return user
     return false
   }
 }

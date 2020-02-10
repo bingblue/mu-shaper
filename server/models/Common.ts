@@ -72,7 +72,7 @@ abstract class Common {
   @AfterLoad()
   loadHelper (): void {
     /** 修改时间格式等 */
-    this._v = `版本号为：${this._v}`
+    // this._v = `版本号为：${this._v}`
   }
 
   /** 更新之前调用 */
