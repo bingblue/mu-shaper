@@ -5,6 +5,19 @@ import UserRepository from '../services/SysUser'
 import RoleRepository from '../services/SysRole'
 
 class User {
+  /** 获取用户信息 */
+  static async info (ctx: Context): Promise<void> {
+    ctx.body = {
+      code: 200,
+      body: {
+        roles: ['admin'],
+        introduction: 'I am a super administrator',
+        avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+        name: '超级管理员'
+      }
+    }
+  }
+
   /** 根据名称查找用户 */
   static async find (ctx: Context): Promise<void> {
     const userRepository = getCustomRepository(UserRepository)
