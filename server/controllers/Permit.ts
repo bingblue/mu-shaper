@@ -1,13 +1,13 @@
 import { Context } from '../common/@types'
 import { routes, roles } from '../config/mock'
 
-class Role {
+class Permit {
   /** 获取菜单 */
   static async getRoutes (ctx: Context): Promise<void> {
     ctx.body = {
       code: 200,
       message: 'success',
-      bady: routes
+      body: routes
     }
   }
 
@@ -16,7 +16,7 @@ class Role {
     ctx.body = {
       code: 200,
       message: 'success',
-      bady: roles
+      body: roles
     }
   }
 
@@ -49,4 +49,4 @@ class Role {
   }
 }
 
-export default Role
+export default Permit

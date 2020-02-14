@@ -226,9 +226,9 @@ npm i koa-joi-router -S
 例子：
 ```ts {18}
 import Koa from 'koa'
-import router from 'koa-joi-router'
-const Joi = router.Joi
-const admin = router()
+import Router from 'koa-joi-router'
+const Joi = Router.Joi
+const admin = Router()
 // 基础请求
 admin.get('/', async (ctx) => {
   ctx.body = 'hello world!'
@@ -289,9 +289,9 @@ npm i koa-joi-router-docs koa2-swagger-ui -D
 
 修改`route/index.ts`：
 ```ts
-import router from 'koa-joi-router'
+import Router from 'koa-joi-router'
 import { SwaggerAPI } from 'koa-joi-router-docs'
-const route = router()
+const router = Router()
 const { Joi } = Router
 
 route.get('/user/:_id', {
@@ -379,7 +379,7 @@ router.get('/doc', async ctx => {
   `
 })
 
-export default route.middleware()
+export default router.middleware()
 ```
 
 在`app.ts`里引用下，访问`localhost:port/doc`就能看到`reDoc`风格的接口文档了，但是我们想要`Swagger UI`风格的文档：
@@ -499,7 +499,7 @@ export { passport }
 然后修改路由`route/auth/index.ts`：
 ```ts
 // ... 引入略
-route.route({
+router.route({
   method: 'post',
   path: '/login',
   validate: {

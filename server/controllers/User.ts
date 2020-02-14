@@ -18,6 +18,20 @@ class User {
     }
   }
 
+  /** 获取用户信息 */
+  static async search (ctx: Context): Promise<void> {
+    let nameList = []
+    for(let i = 0; i <= 10; i++) {
+      nameList.push(ctx.request.query.name + i)
+    }
+    ctx.body = {
+      code: 200,
+      body: {
+        items: nameList
+      }
+    }
+  }
+
   /** 根据名称查找用户 */
   static async find (ctx: Context): Promise<void> {
     const userRepository = getCustomRepository(UserRepository)

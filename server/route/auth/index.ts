@@ -1,14 +1,16 @@
-import router from 'koa-joi-router'
+import Router from 'koa-joi-router'
 import Auth from '../../controllers/Auth'
-const Joi = router.Joi
-const route = router()
-// 普通登录：ip:port/auth/login
-route.route({
+const Joi = Router.Joi
+const router = Router()
+const info = {
+  summary: '登录',
+  tags: ['auth']
+}
+router.route({
   meta: {
     swagger: {
-      summary: '登录',
-      description: '用户名密码登录',
-      tags: ['auth']
+      ...info,
+      description: '用户名密码登录'
     }
   },
   method: 'post',
@@ -22,14 +24,26 @@ route.route({
   },
   handler: Auth.login
 })
-// 登出：ip:port/auth/logout
-route.route({
-  method: 'get',
+
+router.route({
+  meta: {
+    swagger: {
+      ...info,
+      description: '登出'
+    }
+  },
+  method: 'post',
   path: '/logout',
   handler: Auth.logout
 })
-// 注册：ip:port/auth/join
-route.route({
+
+router.route({
+  meta: {
+    swagger: {
+      ...info,
+      description: '用户注册'
+    }
+  },
   method: 'post',
   path: '/join',
   validate: {
@@ -45,16 +59,28 @@ route.route({
   },
   handler: Auth.join
 })
-// github登录：ip:port/auth/github
-route.route({
+
+router.route({
+  meta: {
+    swagger: {
+      ...info,
+      description: 'github 账号登录'
+    }
+  },
   method: 'get',
   path: '/github',
   handler: Auth.github
 })
-// github登录回调：ip:port/auth/githubcb
-route.route({
+
+router.route({
+  meta: {
+    swagger: {
+      ...info,
+      description: 'github 账号登录回调'
+    }
+  },
   method: 'get',
   path: '/githubcb',
   handler: Auth.githubcb
 })
-export default route
+export default router

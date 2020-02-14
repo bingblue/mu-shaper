@@ -1,12 +1,12 @@
 import glob from 'glob'
-import router from 'koa-joi-router'
+import Router from 'koa-joi-router'
 import { SwaggerAPI } from 'koa-joi-router-docs'
 import config from '../config'
-const route = router()
+const router = Router()
 
-// 访问路由：ip:port/
-route.get('/', async (ctx) => {
-  ctx.body = 'index.ts'
+router.get('/', async (ctx) => {
+  /** 重定向至接口文档 */
+  ctx.response.redirect('/doc/swagger')
 })
 
 /**
@@ -15,21 +15,21 @@ route.get('/', async (ctx) => {
  * @updateAt 2019-01-08
  **/
 glob.sync('**/*.ts', { cwd: __dirname }).forEach(file => {
-  // const routes = (await import('./' + file)).default
-  const routes = require('./' + file).default
+  // const routers = (await import('./' + file)).default
+  const routers = require('./' + file).default
   const prefixPath = '/' + file.replace(/\.[^.]*$/, '').replace('/index', '')
   if (prefixPath === '/index') return
   /** 此处写法总觉得不规范，有更好的方法请联系我 */
-  // routes.prefix(prefixPath)
-  routes.routes.forEach(item => {
+  // routers.prefix(prefixPath)
+  routers.routes.forEach(item => {
     item.path = prefixPath + item.path
   })
-  route.route(routes.routes)
+  router.route(routers.routes)
 })
 
 if (config.website.swagger) {
   const generator = new SwaggerAPI()
-  generator.addJoiRouter(route)
+  generator.addJoiRouter(router)
   const spec = generator.generateSpec({
     info: {
       title: 'API文档',
@@ -37,21 +37,21 @@ if (config.website.swagger) {
       version: '0.0.9'
     },
     basePath: '/',
-    tags: [{
-      name: 'auth',
-      description: '权限模块接口。'
-    }, {
-      name: 'blog',
-      description: '博客模块接口。'
-    }, {
-      name: 'user',
-      description: '用户模块接口。'
-    }]
+    // tags: [{
+    //   name: 'auth',
+    //   description: '权限模块接口。'
+    // }, {
+    //   name: 'blog',
+    //   description: '博客模块接口。'
+    // }, {
+    //   name: 'user',
+    //   description: '用户模块接口。'
+    // }]
   })
-  route.get('/doc/swagger.json', async ctx => {
+  router.get('/doc/swagger.json', async ctx => {
     ctx.body = JSON.stringify(spec, null, '  ')
   })
-  route.get('/doc', async ctx => {
+  router.get('/doc', async ctx => {
     ctx.body = `
     <!DOCTYPE html>
     <html>
@@ -69,4 +69,4 @@ if (config.website.swagger) {
     `
   })
 }
-export default route.middleware()
+export default router.middleware()

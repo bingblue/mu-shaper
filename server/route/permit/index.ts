@@ -1,33 +1,33 @@
 import Router from 'koa-joi-router'
-import User from '../../controllers/User'
+import Permit from '../../controllers/Permit'
 const Joi = Router.Joi
 const router = Router()
 const info = {
-  summary: '用户信息',
-  tags: ['user']
+  summary: '权限',
+  tags: ['permit']
 }
 router.route({
   meta: {
     swagger: {
       ...info,
-      description: '获取用户信息'
+      description: '获取用户菜单信息'
     }
   },
   method: 'get',
-  path: '/info',
-  handler: User.info
+  path: '/routes',
+  handler: Permit.getRoutes
 })
 
 router.route({
   meta: {
     swagger: {
       ...info,
-      description: '模糊查询用户'
+      description: '获取用户权限信息'
     }
   },
   method: 'get',
-  path: '/search',
-  handler: User.search
+  path: '/roles',
+  handler: Permit.getRoles
 })
 
 export default router

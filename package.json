@@ -13,7 +13,7 @@
     "lint": "standardx --fix **/*.ts",
     "docs": "vuepress dev docs",
     "docs:build": "vuepress build docs",
-    "test": "jest --coverage --preset ts-jest ./test/"
+    "test": "jest --coverage --preset ts-jest ./test/minimatch.spec.ts"
   },
   "dependencies": {
     "axios": "^0.19.0",

@@ -16,7 +16,20 @@ class Auth {
 
   /** 用户登出 */
   static async logout (ctx: Context): Promise<void> {
-    ctx.body = '登出成功！'
+    ctx.body = {
+      code: 200,
+      body: '登出成功！',
+      message: '登出成功！'
+    }
+  }
+
+  /** 用户登出 */
+  static async getToken (ctx: Context): Promise<void> {
+    ctx.body = {
+      code: 200,
+      body: ctx.req['user'].token,
+      message: '登出成功！'
+    }
   }
 
   /** 用户注册 */
