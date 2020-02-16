@@ -21,10 +21,10 @@ function createJWT (id: string): string {
 //   done(null, user.id)
 // })
 
-// // 反序列化
+// 反序列化
 // passport.deserializeUser(async (id, done) => {
 //   const userRepository = getCustomRepository(UserService)
-//   const user = await userRepository.findByName('xiaomu')
+//   const user = await userRepository.findOne(id)
 //   done(null, user)
 // })
 

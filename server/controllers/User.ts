@@ -7,14 +7,23 @@ import RoleRepository from '../services/SysRole'
 class User {
   /** 获取用户信息 */
   static async info (ctx: Context): Promise<void> {
+    let body = {
+      roles: ['admin'],
+      introduction: 'I am a super administrator',
+      avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+      name: '超级管理员'
+    }
+    if (ctx.request.query.token == 'editor-token') {
+      body = {
+        roles: ['editor'],
+        introduction: 'I am a editor',
+        avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+        name: '用户'
+      }
+    }
     ctx.body = {
       code: 200,
-      body: {
-        roles: ['admin'],
-        introduction: 'I am a super administrator',
-        avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-        name: '超级管理员'
-      }
+      body: body
     }
   }
 
