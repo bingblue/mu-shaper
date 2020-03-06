@@ -11,8 +11,6 @@
     "serve:prod": "cross-env NODE_ENV=production nodemon -e ts --exec ts-node ./server/app.ts",
     "bulid": "ts-node ./test/decorator.spec.ts",
     "lint": "standardx --fix **/*.ts",
-    "docs": "vuepress dev docs",
-    "docs:build": "vuepress build docs",
     "test": "jest --coverage --preset ts-jest ./test/minimatch.spec.ts"
   },
   "dependencies": {
@@ -58,8 +56,7 @@
     "standardx": "^5.0.0",
     "ts-jest": "^24.2.0",
     "ts-node": "^8.5.4",
-    "typescript": "^3.7.3",
-    "vuepress": "^1.2.0"
+    "typescript": "^3.7.3"
   },
   "eslintConfig": {
     "extends": [
