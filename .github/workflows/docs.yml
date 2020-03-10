@@ -3,7 +3,7 @@ name: Ali OSS
 on:
   push:
     branches:
-      - master
+      - docs
 jobs:
   deploy:
     name: 部署到阿里云对象存储
